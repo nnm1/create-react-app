@@ -1,9 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const AccountInfo = () => {
   return (
     <div className="account-info">
-      User Name
+      <Link to='/settings/profile'>
+        User Name
+      </Link>
     </div>
   )
 }
