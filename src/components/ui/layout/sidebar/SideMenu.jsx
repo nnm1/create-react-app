@@ -46,6 +46,7 @@ const renderLink = link => {
       <li className="nav-item" key={link.label}>
         <a className="nav-link">
           {link.label}
+          <span className="badge badge-primary sidemenu-badge">1</span>
         </a>
         {link.nested && renderMenu(link.nested, 'nested')}
       </li>
