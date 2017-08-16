@@ -1,12 +1,14 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 
-import userStore from '../stores/userStore'
+const isUserLoggedIn = () => {
+  return true
+}
 
 const ProtectedRoute = ({ component: Component, ...restProps }) => {
   return (
     <Route {...restProps} render={props => (
-      userStore.isLoggedIn() ? (
+      isUserLoggedIn() ? (
         <Component {...props} />
       ) : (
           <Redirect to={{
