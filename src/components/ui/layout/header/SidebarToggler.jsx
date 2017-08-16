@@ -1,16 +1,25 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-const handleSidebarToggle = () => {
-  document.dispatchEvent(new Event('onSidebarToggle'))
-}
+import { toggleSidebar } from '../../../../actions/layoutActions'
 
-const SidebarToggler = () => {
+const SidebarToggler = ({ onSidebarToggle }) => {
   return (
     <button className="app-sidebar-toggler navbar-toggler d-md-none" type="button"
-      aria-label="Toggle navigation" onClick={handleSidebarToggle}>
+      aria-label="Toggle navigation" onClick={onSidebarToggle}>
       <span className="navbar-toggler-icon" />
     </button>
   )
 }
 
-export default SidebarToggler
+//
+// Container implementation.
+//
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onSidebarToggle: () => dispatch(toggleSidebar())
+  }
+}
+
+export default connect(null, mapDispatchToProps)(SidebarToggler)

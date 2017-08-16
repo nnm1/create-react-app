@@ -1,43 +1,38 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-class AppLayout extends React.Component {
-  constructor(props) {
-    super(props)
+import { toggleSidebar } from '../../../actions/layoutActions'
 
-    this.state = { isSidebarVisible: false }
+const AppLayout = ({ sidebar, content, isSidebarVisible, onSidebarToggle }) => {
+  return (
+    <div className={'app-layout ' + (isSidebarVisible ? '-sidebar-visible' : '')}>
+      <aside className="app-sidebar">
+        {sidebar}
+      </aside>
 
-    this._handleSidebarToggle = this._handleSidebarToggle.bind(this)
-  }
-
-  componentDidMount() {
-    document.addEventListener('onSidebarToggle', this._handleSidebarToggle)
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('onSidebarToggle', this._handleSidebarToggle)
-  }
-
-  _handleSidebarToggle() {
-    this.setState(prevState => ({
-      isSidebarVisible: !prevState.isSidebarVisible
-    }))
-  }
-
-  render() {
-    return (
-      <div className={'app-layout ' + (this.state.isSidebarVisible ? '-sidebar-visible' : '')}>
-        <aside className="app-sidebar">
-          {this.props.sidebar}
-        </aside>
-
-        <div className="app-page">
-          {this.props.content}
-        </div>
-
-        <div className="app-layout-overlay" onClick={this._handleSidebarToggle}/>
+      <div className="app-page">
+        {content}
       </div>
-    )
+
+      <div className="app-layout-overlay" onClick={onSidebarToggle} />
+    </div>
+  )
+}
+
+//
+// Container implementation.
+//
+
+const mapStateToProps = state => {
+  return {
+    isSidebarVisible: state.layout.isSidebarVisible
   }
 }
 
-export default AppLayout
+const mapDispatchToProps = dispatch => {
+  return {
+    onSidebarToggle: () => dispatch(toggleSidebar())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppLayout)
