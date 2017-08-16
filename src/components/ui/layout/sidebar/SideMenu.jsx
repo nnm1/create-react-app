@@ -2,14 +2,16 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 import deviceUtil from '../../../../lib/utils/deviceUtil'
+import featherUtil from '../../../../lib/utils/feather/featherUtil'
 
 const menu = {
   main: [
-    { label: 'Главная', to: '/' }
+    { icon: 'home', label: 'Главная', to: '/' }
   ],
 
   footer: [
     {
+      icon: 'settings',
       label: 'Настройки',
       nested: [
         {
@@ -18,7 +20,7 @@ const menu = {
         }
       ]
     },
-    { label: 'Выйти', to: '/auth/logout' }
+    { icon: 'log-out', label: 'Выйти', to: '/auth/logout' }
   ]
 }
 
@@ -29,14 +31,23 @@ const handleNavLinkClick = () => {
 }
 
 const renderLink = link => {
+  const renderIcon = () => {
+    return link.icon && featherUtil.render(link.icon, { className: 'mr-2' })
+  }
+
+  const renderNested = () => {
+    return link.nested && renderMenu(link.nested, 'nested')
+  }
+
   const renderNavLink = () => {
     return (
       <li className="nav-item" key={link.to}>
         <NavLink exact to={link.to} className="nav-link" activeClassName="active"
           onClick={handleNavLinkClick}>
+          {renderIcon()}
           {link.label}
         </NavLink>
-        {link.nested && renderMenu(link.nested, 'nested')}
+        {renderNested()}
       </li>
     )
   }
@@ -45,10 +56,13 @@ const renderLink = link => {
     return (
       <li className="nav-item" key={link.label}>
         <a className="nav-link">
+          {renderIcon()}
           {link.label}
+
+          {/* Sample badge */}
           <span className="badge badge-primary sidemenu-badge">1</span>
         </a>
-        {link.nested && renderMenu(link.nested, 'nested')}
+        {renderNested()}
       </li>
     )
   }
