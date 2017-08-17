@@ -1,22 +1,17 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { BrowserRouter, Switch } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
-import Main from './Main'
-import ProtectedRoute from '../components/ProtectedRoute'
 import configureStore from '../stores/configureStore'
+import AppRouter from './AppRouter'
 
-const store = configureStore()
+const store = configureStore(window.__INITIAL_STATE__)
 
 const App = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <Switch>
-          {/* <Route exact path="/auth/login" component={LoginPage} /> */}
-
-          <ProtectedRoute component={Main} />
-        </Switch>
+        <AppRouter />
       </BrowserRouter>
     </Provider>
   )
