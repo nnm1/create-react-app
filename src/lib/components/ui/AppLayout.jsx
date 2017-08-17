@@ -23,16 +23,10 @@ const AppLayout = ({ sidebar, content, isSidebarVisible, onSidebarToggle }) => {
 // Container implementation.
 //
 
-const mapStateToProps = state => {
-  return {
-    isSidebarVisible: state.layout.isSidebarVisible
-  }
-}
+const mapStateToProps = state => ({ isSidebarVisible: state.layout.isSidebarVisible })
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onSidebarToggle: () => dispatch(toggleSidebar())
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  onSidebarToggle: () => dispatch(toggleSidebar())
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppLayout)

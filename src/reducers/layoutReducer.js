@@ -7,9 +7,7 @@ const initialState = {
 const layout = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.TOGGLE_SIDEBAR:
-      return Object.assign({}, state, {
-        isSidebarVisible: !state.isSidebarVisible
-      })
+      return Object.assign({}, state, { isSidebarVisible: !state.isSidebarVisible })
 
     default:
       return state

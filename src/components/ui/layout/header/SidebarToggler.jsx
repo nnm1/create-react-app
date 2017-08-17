@@ -16,10 +16,8 @@ const SidebarToggler = ({ onSidebarToggle }) => {
 // Container implementation.
 //
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onSidebarToggle: () => dispatch(toggleSidebar())
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  onSidebarToggle: () => dispatch(toggleSidebar())
+})
 
 export default connect(null, mapDispatchToProps)(SidebarToggler)

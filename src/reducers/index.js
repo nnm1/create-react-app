@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux'
 
 import layout from './layoutReducer'
+import profile from './profileReducer'
 
 const appReducer = combineReducers({
-  layout
+  layout,
+  profile
 })
 
 export default appReducer
