@@ -4,22 +4,20 @@ import { Route, Switch } from 'react-router-dom'
 import MyLayout from '../components/ui/layout/MyLayout'
 import NotFoundRoute from '../components/NotFoundRoute'
 
-import HomePage from '../pages/HomePage'
+import IndexPage from '../pages/IndexPage'
 import ProfilePage from '../pages/settings/ProfilePage'
-import NotFoundPage from '../pages/NotFoundPage'
 
-const Main = () => {
+const ProtectedApp = () => {
   return (
     <MyLayout>
       <Switch>
-        <Route exact path="/" component={HomePage} />
+        <Route exact path="/" component={IndexPage} />
         <Route exact path="/settings/profile" component={ProfilePage} />
 
-        <Route exact path="/not-found" component={NotFoundPage} />
         <Route component={NotFoundRoute} />
       </Switch>
     </MyLayout>
   )
 }
 
-export default Main
+export default ProtectedApp
