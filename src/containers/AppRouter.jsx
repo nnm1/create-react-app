@@ -1,19 +1,20 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import HomePage from '../pages/HomePage'
-import ProtectedApp from './ProtectedApp'
+import routes from '../config/routes'
 import ProtectedRoute from '../components/ProtectedRoute'
+import ProtectedApp from './ProtectedApp'
 
-import NotFoundPage from '../pages/NotFoundPage'
+const renderRoutes = () => {
+  return routes.map(route => (
+    <Route {...route} />
+  ))
+}
 
 const AppRouter = () => {
   return (
     <Switch>
-      <Route exact path="/home" component={HomePage} />
-
-      {/* Render 404 page */}
-      <Route exact path="/notfound" component={NotFoundPage} />
+      {renderRoutes()}
 
       <ProtectedRoute component={ProtectedApp} />
     </Switch>
