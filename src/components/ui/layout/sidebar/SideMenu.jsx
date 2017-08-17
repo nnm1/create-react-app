@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom'
 
 import { toggleSidebar } from '../../../../actions/layoutActions'
 import deviceUtil from '../../../../lib/utils/deviceUtil'
-import featherUtil from '../../../../lib/utils/feather/featherUtil'
 
 const menu = {
   main: [
@@ -27,10 +26,6 @@ const menu = {
 }
 
 const renderLink = (link, onSidebarToggle) => {
-  const renderIcon = () => {
-    return link.icon && featherUtil.render(link.icon, { className: 'mr-2' })
-  }
-
   const renderNested = () => {
     return link.nested && renderMenu(link.nested, onSidebarToggle, 'nested')
   }
@@ -40,7 +35,6 @@ const renderLink = (link, onSidebarToggle) => {
       <li className="nav-item" key={link.to}>
         <NavLink exact to={link.to} className="nav-link" activeClassName="active"
           onClick={onSidebarToggle}>
-          {renderIcon()}
           {link.label}
         </NavLink>
         {renderNested()}
@@ -52,7 +46,6 @@ const renderLink = (link, onSidebarToggle) => {
     return (
       <li className="nav-item" key={link.label}>
         <a className="nav-link">
-          {renderIcon()}
           {link.label}
 
           {/* Sample badge */}
