@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "express": "^4.15.4",
     "lodash": "^4.17.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -18,12 +19,13 @@
     "npm-run-all": "^4.0.2"
   },
   "scripts": {
+    "build": "npm run build-css && react-scripts build && npm run build-server-templates",
     "build-css": "node-sass-chokidar ./src/assets/styles/app.scss -o ./src/assets/styles",
-    "start-js": "react-scripts start",
-    "watch-css": "npm run build-css && node-sass-chokidar ./src/assets/styles/app.scss -o ./src/assets/styles --watch --recursive",
+    "build-server-templates": "cp ./build/index.html ./server/templates",
+    "eject": "react-scripts eject",
     "start": "npm-run-all -p watch-css start-js",
-    "build": "npm run build-css && react-scripts build",
+    "start-js": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "watch-css": "npm run build-css && node-sass-chokidar ./src/assets/styles/app.scss -o ./src/assets/styles --watch --recursive"
   }
 }
