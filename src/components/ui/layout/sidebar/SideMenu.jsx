@@ -25,71 +25,75 @@ const menu = {
   ]
 }
 
-const renderLink = (link, onSidebarToggle) => {
-  const renderNested = () => {
-    return link.nested && renderMenu(link.nested, onSidebarToggle, 'nested')
-  }
-
-  const renderNavLink = () => {
-    return (
-      <li className="nav-item" key={link.to}>
-        <NavLink exact to={link.to} className="nav-link" activeClassName="active"
-          onClick={onSidebarToggle}>
-          {link.label}
-        </NavLink>
-        {renderNested()}
-      </li>
-    )
-  }
-
-  const renderLabelLink = () => {
-    return (
-      <li className="nav-item" key={link.label}>
-        <a className="nav-link">
-          {link.label}
-
-          {/* Sample badge */}
-          <span className="badge badge-primary sidemenu-badge">1</span>
-        </a>
-        {renderNested()}
-      </li>
-    )
-  }
-
-  return link.to ? renderNavLink() : renderLabelLink()
-}
-
-const renderMenu = (menuLinks, onSidebarToggle, additionalClassName = '') => {
-  return (
-    <ul className={'nav flex-column ' + additionalClassName}>
-      {menuLinks.map(link => renderLink(link, onSidebarToggle))}
-    </ul>
-  )
-}
-
-const SideMenu = ({ onSidebarToggle }) => {
-  return (
-    <nav className="sidemenu">
-      {renderMenu(menu.main, onSidebarToggle)}
-      {renderMenu(menu.footer, onSidebarToggle, '-sidemenu-footer')}
-    </nav>
-  )
-}
-
 //
 // Container implementation.
 //
 
-const mapDispatchToProps = dispatch => {
-  const handleSidebarToggle = () => {
+class SideMenu extends React.PureComponent {
+  constructor(props) {
+    super(props)
+
+    this._handleNavLinkClick = this._handleNavLinkClick.bind(this)
+  }
+
+  _handleNavLinkClick() {
+    // Toggle the sidebar on mobile devices.
     if (deviceUtil.isMobile()) {
+      const { dispatch } = this.props
       dispatch(toggleSidebar())
     }
   }
 
-  return {
-    onSidebarToggle: handleSidebarToggle
+  _renderLink = (link) => {
+    const renderNested = () => {
+      return link.nested && this._renderMenu(link.nested, 'nested')
+    }
+
+    const renderNavLink = () => {
+      return (
+        <li className="nav-item" key={link.to}>
+          <NavLink exact to={link.to} className="nav-link" activeClassName="active"
+            onClick={this._handleNavLinkClick}>
+            {link.label}
+          </NavLink>
+          {renderNested()}
+        </li>
+      )
+    }
+
+    const renderLabelLink = () => {
+      return (
+        <li className="nav-item" key={link.label}>
+          <a className="nav-link">
+            {link.label}
+
+            {/* Sample badge */}
+            <span className="badge badge-primary sidemenu-badge">1</span>
+          </a>
+          {renderNested()}
+        </li>
+      )
+    }
+
+    return link.to ? renderNavLink() : renderLabelLink()
+  }
+
+  _renderMenu(menuLinks, additionalClassName = '') {
+    return (
+      <ul className={'nav flex-column ' + additionalClassName}>
+        {menuLinks.map(link => this._renderLink(link))}
+      </ul>
+    )
+  }
+
+  render() {
+    return (
+      <nav className="sidemenu">
+        {this._renderMenu(menu.main)}
+        {this._renderMenu(menu.footer, '-sidemenu-footer')}
+      </nav>
+    )
   }
 }
 
-export default connect(null, mapDispatchToProps)(SideMenu)
+export default connect()(SideMenu)
