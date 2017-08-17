@@ -7,7 +7,7 @@ import ProtectedApp from './ProtectedApp'
 
 const renderRoutes = () => {
   return routes.map(route => (
-    <Route {...route} />
+    <Route key={route.path} {...route} />
   ))
 }
 
