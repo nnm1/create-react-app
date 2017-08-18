@@ -1,5 +1,5 @@
 import express from 'express'
-import favicon from 'serve-favicon' // TODO: remove later
+import favicon from 'serve-favicon'
 import fs from 'fs'
 import path from 'path'
 import React from 'react'
@@ -11,18 +11,22 @@ import configureStore from './stores/configureStore'
 import routes from './config/routes'
 import ServerApp from './containers/ServerApp'
 
+// Define application environment.
+const NODE_ENV = process.env.NODE_ENV || 'development',
+  isProduction = 'production' === NODE_ENV,
+  isDevelopment = !isProduction
+
 // Load template.
 const template = fs.readFileSync(path.join(__dirname, '../index.html'), 'utf8')
 
-// Create an Express app and define port.
+// Create an Express app.
 const app = express()
-const port = 4000
 
-// TODO: remove later
 // Serve favicon and static assets (for dev only).
-app.use(favicon(path.join(__dirname, '../favicon.ico')))
-app.use('/static', express.static(path.join(__dirname, '../static')))
-// End of TODO
+if (isDevelopment) {
+  app.use(favicon(path.join(__dirname, '../favicon.ico')))
+  app.use('/static', express.static(path.join(__dirname, '../static')))
+}
 
 // Return an array of promises to fetch data required for rendering
 // matching components.
@@ -48,6 +52,7 @@ const redirect = (res, location) => {
   res.end()
 }
 
+// Render title and description tags.
 const renderSeoTags = (page, title, description) => {
   const makeTitle = () => `${title} | ${appConfig.title}`
 
@@ -63,6 +68,7 @@ const renderSeoTags = (page, title, description) => {
   return page
 }
 
+// Render full page or redirect.
 const renderOrRedirect = (req, res, store, { title, description }) => {
   // Track redirections and 404 with context.
   const context = {}
@@ -108,6 +114,7 @@ const seoTags = (promisesData) => {
   return pageSeoTags
 }
 
+// Universal request handler.
 const handler = (req, res) => {
   // Create a Redux store for every request.
   const store = configureStore()
@@ -122,6 +129,7 @@ const handler = (req, res) => {
 app.get('*', handler)
 
 // Start the server.
+const port = 4000
 app.listen(port, () => {
   console.log(`Server application is listening on port ${port}`)
 })
