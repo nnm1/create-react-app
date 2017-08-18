@@ -1,6 +1,6 @@
 import React from 'react'
 
-import AppLayout from '../../../lib/components/ui/AppLayout'
+import AppLayout from '../../lib/components/layout/AppLayout'
 
 import MySidebar from './MySidebar'
 import MyPage from './MyPage'

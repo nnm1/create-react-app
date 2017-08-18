@@ -2,6 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import './assets/styles/app.css'
-import App from './containers/App'
+import ClientApp from './containers/ClientApp'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<ClientApp />, document.getElementById('root'))
