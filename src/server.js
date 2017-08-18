@@ -64,6 +64,11 @@ const renderOrRedirect = (req, res, store) => {
     return
   }
 
+  // 404 error.
+  if (context.status === 404) {
+    res.status(404)
+  }
+
   // We're good, send the response.
   const page = template
     .replace('<div id="content"></div>', content)
