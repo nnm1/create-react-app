@@ -43,7 +43,6 @@ class ProfilePageContainer extends React.PureComponent {
 
   render() {
     const { profile } = this.props
-
     return (
       <ProfilePage profile={profile} />
     )

@@ -64,15 +64,21 @@ const renderOrRedirect = (req, res, store) => {
     return
   }
 
-  // 404 error.
+  //
+  // We're good, send the response.
+  //
+
+  // Handle 404 error.
   if (context.status === 404) {
     res.status(404)
   }
 
-  // We're good, send the response.
+  // Escape store state.
+  const storeState = JSON.stringify(store.getState()).replace(/</g, '\\u003c')
+  // Replace placeholders and render html.
   const page = template
     .replace('<div id="content"></div>', content)
-    .replace("const store = {}", `const store = ${JSON.stringify(store.getState())}`)
+    .replace('const store = {}', `const store = ${storeState}`)
   res.send(page)
 }
 

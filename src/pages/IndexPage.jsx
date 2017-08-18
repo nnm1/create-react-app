@@ -2,6 +2,7 @@ import _ from 'lodash'
 import React from 'react'
 import { connect } from 'react-redux'
 
+// import htmlUtil from '../lib/utils/htmlUtil'
 import { fetchProfile } from '../actions/profileActions'
 
 const IndexPage = ({ profile }) => {
@@ -31,6 +32,10 @@ class IndexPageContainer extends React.PureComponent {
     this._fetchProfileIfNeeded()
   }
 
+  // componentDidUpdate(prevProps) {
+  //   this._setSeoTagsIfNeeded(prevProps)
+  // }
+
   _fetchProfileIfNeeded() {
     const { profile, dispatch } = this.props
     if (_.isEmpty(profile)) {
@@ -38,9 +43,17 @@ class IndexPageContainer extends React.PureComponent {
     }
   }
 
+  // _setSeoTagsIfNeeded(prevProps) {
+  //   const { profile } = this.props
+  //   if (prevProps.profile !== profile) {
+  //     htmlUtil.setTitleAndMetaDescription(
+  //       profile.name, 'profile description for SEO'
+  //     )
+  //   }
+  // }
+
   render() {
     const { profile } = this.props
-
     return (
       <IndexPage profile={profile} />
     )
