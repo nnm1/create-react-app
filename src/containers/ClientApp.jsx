@@ -7,7 +7,7 @@ import AppRouter from './AppRouter'
 
 const store = configureStore(window.__INITIAL_STATE__)
 
-const App = () => {
+const ClientApp = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
@@ -17,4 +17,4 @@ const App = () => {
   )
 }
 
-export default App
+export default ClientApp

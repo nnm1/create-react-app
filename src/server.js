@@ -1,14 +1,11 @@
 import express from 'express'
-import favicon from 'serve-favicon'
+import favicon from 'serve-favicon' // TODO: remove later
 import fs from 'fs'
 import path from 'path'
 import React from 'react'
-import { Provider } from 'react-redux'
 import { renderToString } from 'react-dom/server'
-import { StaticRouter } from 'react-router-dom'
 
-import configureStore from './stores/configureStore'
-import AppRouter from './containers/AppRouter'
+import ServerApp from './containers/ServerApp'
 
 // Load template.
 const template = fs.readFileSync(path.join(__dirname, '../index.html'), 'utf8')
@@ -23,9 +20,6 @@ app.use(favicon(path.join(__dirname, '../favicon.ico')))
 app.use('/static', express.static(path.join(__dirname, '../static')))
 // End of TODO
 
-// Create a Redux store.
-const store = configureStore()
-
 // Redirect helper.
 const redirect = (res, location) => {
   res.writeHead(301, {
@@ -35,14 +29,11 @@ const redirect = (res, location) => {
 }
 
 const handler = (req, res) => {
+  // Track redirections.
   const context = {}
 
   const content = renderToString(
-    <Provider store={store}>
-      <StaticRouter location={req.url} context={context}>
-        <AppRouter />
-      </StaticRouter>
-    </Provider>
+    <ServerApp location={req.url} context={context} />
   )
 
   // Somewhere a `<Redirect>` was rendered.
@@ -59,6 +50,7 @@ const handler = (req, res) => {
 // Handle requests.
 app.get('*', handler)
 
+// Start the server.
 app.listen(port, () => {
   console.log(`Server application is listening on port ${port}`)
 })
