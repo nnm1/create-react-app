@@ -2,12 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
-import { toggleSidebar } from '../../../../actions/layoutActions'
-import deviceUtil from '../../../../lib/utils/deviceUtil'
+import { toggleSidebar } from '../../../actions/layoutActions'
+import deviceUtil from '../../../lib/utils/deviceUtil'
 
 const menu = {
   main: [
-    { icon: 'home', label: 'Главная', to: '/' }
+    { icon: 'home', label: 'Главная', to: '/admin' }
   ],
 
   footer: [
@@ -17,7 +17,7 @@ const menu = {
       nested: [
         {
           label: 'Профиль',
-          to: '/settings/profile'
+          to: '/admin/settings/profile'
         }
       ]
     },

@@ -1,11 +1,9 @@
 // Public routes which should be indexed.
 
-import HomePage from '../pages/HomePage'
-import NotFoundPage from '../pages/NotFoundPage'
+import IndexPage from '../pages/IndexPage'
 
 const routes = [
-  { exact: true, path: '/home', component: HomePage },
-  { exact: true, path: '/notfound', component: NotFoundPage }
+  { exact: true, path: '/', component: IndexPage }
 ]
 
 export default routes

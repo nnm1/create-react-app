@@ -2,8 +2,8 @@ import _ from 'lodash'
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { fetchProfile } from '../../actions/profileActions'
-import MyContent from '../../components/ui/layout/MyContent'
+import { fetchProfile } from '../../../actions/profileActions'
+import MyContent from '../../../components/layout/MyContent'
 
 const ProfilePage = ({ profile }) => {
   const content = _.isEmpty(profile) ? (

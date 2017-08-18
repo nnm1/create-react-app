@@ -1,9 +1,10 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 
 import routes from '../config/routes'
 import ProtectedRoute from '../components/ProtectedRoute'
 import ProtectedApp from './ProtectedApp'
+import NotFoundPage from '../pages/NotFoundPage'
 
 const renderRoutes = () => {
   return routes.map(route => (
@@ -15,8 +16,9 @@ const AppRouter = () => {
   return (
     <Switch>
       {renderRoutes()}
+      <ProtectedRoute path="/admin" component={ProtectedApp} />
 
-      <ProtectedRoute component={ProtectedApp} />
+      <Route path="*" component={NotFoundPage} />
     </Switch>
   )
 }

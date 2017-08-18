@@ -1,19 +1,52 @@
+import _ from 'lodash'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-import MyContent from '../components/ui/layout/MyContent'
+import { fetchProfile } from '../actions/profileActions'
 
-const IndexPage = () => {
+const IndexPage = ({ profile }) => {
+  if (_.isEmpty(profile)) {
+    return (
+      <progress />
+    )
+  }
+
   return (
-    <MyContent
-      header="Главная страница"
-      actions={
-        <Link to="/settings/profile" className="btn btn-primary">Профиль</Link>
-      }
-      content={
-        <p>Здесь будет общая информация, статистика и т.п.</p>
-      } />
+    <p>Добро пожаловать, {profile.name}</p>
   )
 }
 
-export default IndexPage
+//
+// Container implementation.
+//
+
+class IndexPageContainer extends React.PureComponent {
+  // Fetch container data for rendering on server.
+  // Must be static function with a single parameter - "store".
+  static fetchData(dispatch) {
+    return dispatch(fetchProfile())
+  }
+
+  componentDidMount() {
+    this._fetchProfileIfNeeded()
+  }
+
+  _fetchProfileIfNeeded() {
+    const { profile, dispatch } = this.props
+    if (_.isEmpty(profile)) {
+      this.constructor.fetchData(dispatch)
+    }
+  }
+
+  render() {
+    const { profile } = this.props
+
+    return (
+      <IndexPage profile={profile} />
+    )
+  }
+}
+
+const mapStateToProps = state => ({ profile: state.profile.data })
+
+export default connect(mapStateToProps)(IndexPageContainer)

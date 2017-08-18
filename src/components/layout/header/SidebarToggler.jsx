@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { toggleSidebar } from '../../../../actions/layoutActions'
+import { toggleSidebar } from '../../../actions/layoutActions'
 
 const SidebarToggler = ({ onSidebarToggle }) => {
   return (

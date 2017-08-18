@@ -1,10 +1,14 @@
 import React from 'react'
 
-const NotFoundPage = () => {
+import NotFound from '../lib/components/NotFound'
+
+const NotFoundPage = ({ staticContext }) => {
+  if (staticContext) {
+    staticContext.status = 404;
+  }
+
   return (
-    <h5 className="alert alert-danger m-3" role="alert">
-      Такой страницы не существует :-(
-    </h5>
+    <NotFound />
   )
 }
 
