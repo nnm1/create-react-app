@@ -28,7 +28,7 @@
 
     <div id="root">
       <!-- Provide content for rendering on server. -->
-      {{ content }}
+      <div id="content"></div>
     </div>
     <!--
       This HTML file is a template.
@@ -40,5 +40,11 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    <!-- Provide initial Redux store state from the server. -->
+    <script>
+      const store = {}
+      window.__INITIAL_STORE_STATE__ = store
+    </script>
   </body>
 </html>

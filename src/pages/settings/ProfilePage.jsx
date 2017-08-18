@@ -31,8 +31,14 @@ const ProfilePage = ({ profile }) => {
 
 class ProfilePageContainer extends React.PureComponent {
   componentDidMount() {
-    const { dispatch } = this.props
-    dispatch(fetchProfile())
+    this._fetchProfileIfNeeded()
+  }
+
+  _fetchProfileIfNeeded() {
+    const { profile, dispatch } = this.props
+    if (_.isEmpty(profile)) {
+      dispatch(fetchProfile())
+    }
   }
 
   render() {

@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom'
 import configureStore from '../stores/configureStore'
 import AppRouter from './AppRouter'
 
-const store = configureStore(window.__INITIAL_STATE__)
+const store = configureStore(window.__INITIAL_STORE_STATE__)
 
 const ClientApp = () => {
   return (

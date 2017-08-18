@@ -35,7 +35,7 @@ const dataPromises = (url, store) => {
     if (match) {
       const fetchData = route.component.fetchData
       if (fetchData instanceof Function) {
-        promises.push(fetchData(store))
+        promises.push(fetchData(store.dispatch))
       }
     }
     return match
@@ -65,7 +65,9 @@ const renderOrRedirect = (req, res, store) => {
   }
 
   // We're good, send the response.
-  const page = template.replace('{{ content }}', content)
+  const page = template
+    .replace('<div id="content"></div>', content)
+    .replace("const store = {}", `const store = ${JSON.stringify(store.getState())}`)
   res.send(page)
 }
 
@@ -74,9 +76,7 @@ const handler = (req, res) => {
   const store = configureStore()
 
   const promises = dataPromises(req.url, store)
-  Promise.all(promises).then(() => {
-    renderOrRedirect(req, res, store)
-  })
+  Promise.all(promises).then(() => renderOrRedirect(req, res, store))
 }
 
 // Handle requests.

@@ -23,14 +23,19 @@ const HomePage = ({ profile }) => {
 class HomePageContainer extends React.PureComponent {
   // Fetch container data for rendering on server.
   // Must be static function with a single parameter - "store".
-  static fetchData(store) {
-    const { dispatch } = store
+  static fetchData(dispatch) {
     return dispatch(fetchProfile())
   }
 
   componentDidMount() {
-    const { dispatch } = this.props
-    dispatch(fetchProfile())
+    this._fetchProfileIfNeeded()
+  }
+
+  _fetchProfileIfNeeded() {
+    const { profile, dispatch } = this.props
+    if (_.isEmpty(profile)) {
+      this.constructor.fetchData(dispatch)
+    }
   }
 
   render() {
