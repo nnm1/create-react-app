@@ -26,31 +26,21 @@ class IndexPageContainer extends React.PureComponent {
   // Must be static function with a single parameter - "store".
   static fetchData(dispatch) {
     return dispatch(fetchProfile())
+      .then(profile => (
+        { pageTitle: profile.name, pageDescription: 'Profile description' }
+      ))
   }
 
   componentDidMount() {
     this._fetchProfileIfNeeded()
   }
 
-  // componentDidUpdate(prevProps) {
-  //   this._setSeoTagsIfNeeded(prevProps)
-  // }
-
   _fetchProfileIfNeeded() {
     const { profile, dispatch } = this.props
     if (_.isEmpty(profile)) {
-      this.constructor.fetchData(dispatch)
+      dispatch(fetchProfile())
     }
   }
-
-  // _setSeoTagsIfNeeded(prevProps) {
-  //   const { profile } = this.props
-  //   if (prevProps.profile !== profile) {
-  //     htmlUtil.setTitleAndMetaDescription(
-  //       profile.name, 'profile description for SEO'
-  //     )
-  //   }
-  // }
 
   render() {
     const { profile } = this.props

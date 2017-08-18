@@ -6,6 +6,7 @@ import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { matchPath } from 'react-router-dom'
 
+import appConfig from './config/appConfig'
 import configureStore from './stores/configureStore'
 import routes from './config/routes'
 import ServerApp from './containers/ServerApp'
@@ -27,9 +28,7 @@ app.use('/static', express.static(path.join(__dirname, '../static')))
 // matching components.
 const dataPromises = (url, store) => {
   const promises = []
-
-  // Use `some` to imitate `<Switch>` behavior of selecting only
-  // the first to match.
+  // Use `some` to imitate `<Switch>` behavior of selecting only the first to match.
   routes.some(route => {
     const match = matchPath(url, route)
     if (match) {
@@ -40,7 +39,6 @@ const dataPromises = (url, store) => {
     }
     return match
   })
-
   return promises
 }
 
@@ -50,10 +48,24 @@ const redirect = (res, location) => {
   res.end()
 }
 
-const renderOrRedirect = (req, res, store) => {
-  // Track redirections.
-  const context = {}
+const renderSeoTags = (page, title, description) => {
+  const makeTitle = () => `${title} | ${appConfig.title}`
 
+  if (title) {
+    page = page.replace(/<title>.*?<\/title>/, `<title>${makeTitle()}</title>`)
+  }
+  if (description) {
+    page = page.replace(
+      /<meta name="description" content=".*?"\/?>/,
+      `<meta name="description" content="${description}">`
+    )
+  }
+  return page
+}
+
+const renderOrRedirect = (req, res, store, { title, description }) => {
+  // Track redirections and 404 with context.
+  const context = {}
   const content = renderToString(
     <ServerApp store={store} location={req.url} context={context} />
   )
@@ -64,10 +76,6 @@ const renderOrRedirect = (req, res, store) => {
     return
   }
 
-  //
-  // We're good, send the response.
-  //
-
   // Handle 404 error.
   if (context.status === 404) {
     res.status(404)
@@ -75,11 +83,29 @@ const renderOrRedirect = (req, res, store) => {
 
   // Escape store state.
   const storeState = JSON.stringify(store.getState()).replace(/</g, '\\u003c')
+
   // Replace placeholders and render html.
-  const page = template
+  let page = template
     .replace('<div id="content"></div>', content)
     .replace('const store = {}', `const store = ${storeState}`)
+  page = renderSeoTags(page, title, description)
+
   res.send(page)
+}
+
+// Returns page title and description.
+const seoTags = (promisesData) => {
+  const pageSeoTags = { title: '', description: '' }
+  // Find page title and description.
+  promisesData.forEach(promiseData => {
+    if (promiseData.pageTitle) {
+      pageSeoTags.title = promiseData.pageTitle
+    }
+    if (promiseData.pageDescription) {
+      pageSeoTags.description = promiseData.pageDescription
+    }
+  })
+  return pageSeoTags
 }
 
 const handler = (req, res) => {
@@ -87,7 +113,9 @@ const handler = (req, res) => {
   const store = configureStore()
 
   const promises = dataPromises(req.url, store)
-  Promise.all(promises).then(() => renderOrRedirect(req, res, store))
+  Promise.all(promises).then(promisesData =>
+    renderOrRedirect(req, res, store, seoTags(promisesData))
+  )
 }
 
 // Handle requests.
