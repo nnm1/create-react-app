@@ -9,7 +9,8 @@ const MyLayout = ({ children }) => {
   return (
     <AppLayout
       sidebar={<MySidebar />}
-      content={<MyPage>{children}</MyPage>} />
+      content={<MyPage>{children}</MyPage>}
+    />
   )
 }
 

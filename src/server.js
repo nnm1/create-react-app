@@ -100,7 +100,7 @@ const renderOrRedirect = (req, res, store, { title, description }) => {
 }
 
 // Returns page title and description.
-const seoTags = (promisesData) => {
+const seoTags = promisesData => {
   const pageSeoTags = { title: '', description: '' }
   // Find page title and description.
   promisesData.forEach(promiseData => {

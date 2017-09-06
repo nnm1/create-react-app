@@ -7,14 +7,10 @@ import { fetchProfile } from '../actions/profileActions'
 
 const IndexPage = ({ profile }) => {
   if (_.isEmpty(profile)) {
-    return (
-      <progress />
-    )
+    return <progress />
   }
 
-  return (
-    <p>Добро пожаловать, {profile.name}</p>
-  )
+  return <p>Добро пожаловать, {profile.name}</p>
 }
 
 //
@@ -25,10 +21,10 @@ class IndexPageContainer extends React.PureComponent {
   // Fetch container data for rendering on server.
   // Must be static function with a single parameter - "store".
   static fetchData(dispatch) {
-    return dispatch(fetchProfile())
-      .then(profile => (
-        { pageTitle: profile.name, pageDescription: 'Profile description' }
-      ))
+    return dispatch(fetchProfile()).then(profile => ({
+      pageTitle: profile.name,
+      pageDescription: 'Profile description'
+    }))
   }
 
   componentDidMount() {
@@ -44,9 +40,7 @@ class IndexPageContainer extends React.PureComponent {
 
   render() {
     const { profile } = this.props
-    return (
-      <IndexPage profile={profile} />
-    )
+    return <IndexPage profile={profile} />
   }
 }
 

@@ -7,9 +7,7 @@ import ProtectedApp from './ProtectedApp'
 import NotFoundPage from '../pages/NotFoundPage'
 
 const renderRoutes = () => {
-  return routes.map(route => (
-    <Route key={route.path} {...route} />
-  ))
+  return routes.map(route => <Route key={route.path} {...route} />)
 }
 
 const AppRouter = () => {

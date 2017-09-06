@@ -9,8 +9,8 @@ const ProfilePage = ({ profile }) => {
   const content = _.isEmpty(profile) ? (
     <progress />
   ) : (
-      <p>Здесь будут настройки профиля для {profile.name}</p>
-    )
+    <p>Здесь будут настройки профиля для {profile.name}</p>
+  )
 
   return (
     <MyContent
@@ -21,7 +21,8 @@ const ProfilePage = ({ profile }) => {
           {/* <li className="breadcrumb-item"><Link to="/settings">Настройки</Link></li> */}
         </ul>
       }
-      content={content} />
+      content={content}
+    />
   )
 }
 
@@ -43,9 +44,7 @@ class ProfilePageContainer extends React.PureComponent {
 
   render() {
     const { profile } = this.props
-    return (
-      <ProfilePage profile={profile} />
-    )
+    return <ProfilePage profile={profile} />
   }
 }
 

@@ -44,7 +44,7 @@ class SideMenu extends React.PureComponent {
     }
   }
 
-  _renderLink = (link) => {
+  _renderLink(link) {
     const renderNested = () => {
       return link.nested && this._renderMenu(link.nested, 'nested')
     }
@@ -52,7 +52,8 @@ class SideMenu extends React.PureComponent {
     const renderNavLink = () => {
       return (
         <li className="nav-item" key={link.to}>
-          <NavLink exact to={link.to} className="nav-link" activeClassName="active"
+          <NavLink exact to={link.to}
+            className="nav-link" activeClassName="active"
             onClick={this._handleNavLinkClick}>
             {link.label}
           </NavLink>

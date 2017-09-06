@@ -23,7 +23,9 @@ const AppLayout = ({ sidebar, content, isSidebarVisible, onSidebarToggle }) => {
 // Container implementation.
 //
 
-const mapStateToProps = state => ({ isSidebarVisible: state.layout.isSidebarVisible })
+const mapStateToProps = state => ({
+  isSidebarVisible: state.layout.isSidebarVisible
+})
 
 const mapDispatchToProps = dispatch => ({
   onSidebarToggle: () => dispatch(toggleSidebar())

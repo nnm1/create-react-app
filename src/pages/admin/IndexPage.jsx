@@ -8,11 +8,14 @@ const IndexPage = () => {
     <MyContent
       header="Главная страница"
       actions={
-        <Link to="/admin/settings/profile" className="btn btn-primary">Профиль</Link>
+        <Link to="/admin/settings/profile" className="btn btn-primary">
+          Профиль
+        </Link>
       }
       content={
         <p>Здесь будет общая информация, статистика и т.п.</p>
-      } />
+      }
+    />
   )
 }
 

@@ -4,12 +4,10 @@ import NotFound from '../lib/components/NotFound'
 
 const NotFoundPage = ({ staticContext }) => {
   if (staticContext) {
-    staticContext.status = 404;
+    staticContext.status = 404
   }
 
-  return (
-    <NotFound />
-  )
+  return <NotFound />
 }
 
 export default NotFoundPage

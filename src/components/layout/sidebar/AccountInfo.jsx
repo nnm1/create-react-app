@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const AccountInfo = () => {
   return (
     <div className="account-info">
-      <Link to='/admin/settings/profile'>
+      <Link to="/admin/settings/profile">
         {/* {featherUtil.render('user', { className: 'mr-2' })} */}
         User Name
       </Link>
