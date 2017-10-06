@@ -84,7 +84,7 @@ class SideMenu extends React.PureComponent {
 
   _renderMenu(menuLinks, additionalClassName = '') {
     return (
-      <ul className={'nav flex-column ' + additionalClassName}>
+      <ul className={'nav flex-column flex-nowrap ' + additionalClassName}>
         {menuLinks.map(link => this._renderLink(link))}
       </ul>
     )
@@ -93,8 +93,8 @@ class SideMenu extends React.PureComponent {
   render() {
     return (
       <nav className="sidemenu">
-        {this._renderMenu(menu.main)}
-        {this._renderMenu(menu.footer, '-sidemenu-footer')}
+        {this._renderMenu(menu.main, '-sidemenu-grow mb-3')}
+        {this._renderMenu(menu.footer)}
       </nav>
     )
   }

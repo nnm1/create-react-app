@@ -1,12 +1,11 @@
 .sidemenu {
   display: flex;
-  flex-direction: column;
-
+  flex-flow: column;
   height: calc(100% - #{$header-height});
-  overflow-y: auto;
 
-  > .-sidemenu-footer {
-    margin-top: auto;
+  > .-sidemenu-grow {
+    flex-grow: 1;
+    overflow-y: auto;
   }
 
   .nav .nav-link {
