@@ -32,7 +32,8 @@ if (isDevelopment) {
 // matching components.
 const dataPromises = (url, store) => {
   const promises = []
-  // Use `some` to imitate `<Switch>` behavior of selecting only the first to match.
+  // Use `some` to imitate `<Switch>` behavior
+  // of selecting only the first to match.
   routes.some(route => {
     const match = matchPath(url, route)
     if (match) {
