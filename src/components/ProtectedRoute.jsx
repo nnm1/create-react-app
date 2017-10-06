@@ -5,10 +5,9 @@ const isUserLoggedIn = () => {
   return true
 }
 
-const ProtectedRoute = ({ component: Component, ...restProps }) => {
+const ProtectedRoute = ({ component: Component }) => {
   return (
     <Route
-      {...restProps}
       render={props =>
         isUserLoggedIn() ? (
           <Component {...props} />
