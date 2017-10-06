@@ -5,14 +5,11 @@ import { toggleSidebar } from '../../../actions/layoutActions'
 
 const AppLayout = ({ sidebar, content, isSidebarVisible, onSidebarToggle }) => {
   return (
-    <div className={'app-layout ' + (isSidebarVisible ? '-sidebar-visible' : '')}>
-      <aside className="app-sidebar">
-        {sidebar}
-      </aside>
+    <div
+      className={'app-layout ' + (isSidebarVisible ? '-sidebar-visible' : '')}>
+      <aside className="app-sidebar">{sidebar}</aside>
 
-      <div className="app-page">
-        {content}
-      </div>
+      <div className="app-page">{content}</div>
 
       <div className="app-layout-overlay" onClick={onSidebarToggle} />
     </div>

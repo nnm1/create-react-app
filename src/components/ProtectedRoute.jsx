@@ -7,7 +7,8 @@ const isUserLoggedIn = () => {
 
 const ProtectedRoute = ({ component: Component, ...restProps }) => {
   return (
-    <Route {...restProps}
+    <Route
+      {...restProps}
       render={props =>
         isUserLoggedIn() ? (
           <Component {...props} />

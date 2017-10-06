@@ -18,7 +18,9 @@ const ProfilePage = ({ profile }) => {
       breadcrumbs={
         <ul className="breadcrumb">
           <li className="breadcrumb-item">Настройки</li>
-          {/* <li className="breadcrumb-item"><Link to="/settings">Настройки</Link></li> */}
+          {/* <li className="breadcrumb-item">
+            <Link to="/settings">Настройки</Link>
+          </li> */}
         </ul>
       }
       content={content}

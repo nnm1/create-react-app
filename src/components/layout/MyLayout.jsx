@@ -7,10 +7,7 @@ import MyPage from './MyPage'
 
 const MyLayout = ({ children }) => {
   return (
-    <AppLayout
-      sidebar={<MySidebar />}
-      content={<MyPage>{children}</MyPage>}
-    />
+    <AppLayout sidebar={<MySidebar />} content={<MyPage>{children}</MyPage>} />
   )
 }
 
