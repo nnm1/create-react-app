@@ -14,7 +14,7 @@ const ProfilePage = ({ profile }) => {
 
   return (
     <MyContent
-      header="Мой профиль"
+      header={<h1>Мой профиль</h1>}
       breadcrumbs={
         <ul className="breadcrumb">
           <li className="breadcrumb-item">Настройки</li>

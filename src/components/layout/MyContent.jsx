@@ -6,9 +6,7 @@ const MyContent = ({ breadcrumbs, header, actions, content }) => {
       {breadcrumbs}
 
       <div className="row mb-3">
-        <div className="col-12 col-md">
-          <h1>{header}</h1>
-        </div>
+        <div className="col-12 col-md">{header}</div>
 
         {actions && (
           <div className="col-12 col-md-auto action-group">{actions}</div>

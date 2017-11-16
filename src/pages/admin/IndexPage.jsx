@@ -6,7 +6,7 @@ import MyContent from '../../components/layout/MyContent'
 const IndexPage = () => {
   return (
     <MyContent
-      header="Главная страница"
+      header={<h1>Главная страница</h1>}
       actions={
         <Link to="/admin/settings/profile" className="btn btn-primary">
           Профиль
