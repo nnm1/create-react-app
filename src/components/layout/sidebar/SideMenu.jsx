@@ -72,7 +72,7 @@ class SideMenu extends React.PureComponent {
             {link.label}
 
             {/* Sample badge */}
-            <span className="badge badge-primary sidemenu-badge">1</span>
+            <span className="badge badge-danger sidemenu-badge">1</span>
           </a>
           {renderNested()}
         </li>
