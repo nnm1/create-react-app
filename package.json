@@ -22,7 +22,7 @@
     "react-scripts": "1.0.17"
   },
   "scripts": {
-    "build": "npm run build:css && react-scripts build && npm run build:server",
+    "build": "npm run build:css && GENERATE_SOURCEMAP=false react-scripts build && npm run build:server",
     "build:css": "node-sass-chokidar ./src/assets/styles/app.scss -o ./src/assets/styles",
     "build:server": "BABEL_ENV=production babel ./src -d ./build/src --presets=es2015,react-app",
     "eject": "react-scripts eject",
