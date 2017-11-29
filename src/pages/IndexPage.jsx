@@ -2,7 +2,6 @@ import _ from 'lodash'
 import React from 'react'
 import { connect } from 'react-redux'
 
-// import htmlUtil from '../lib/utils/htmlUtil'
 import { fetchProfile } from '../actions/profileActions'
 
 const IndexPage = ({ profile }) => {
@@ -18,15 +17,6 @@ const IndexPage = ({ profile }) => {
 //
 
 class IndexPageContainer extends React.PureComponent {
-  // Fetch container data for rendering on server.
-  // Must be static function with a single parameter - "store".
-  static fetchData(dispatch) {
-    return dispatch(fetchProfile()).then(profile => ({
-      pageTitle: profile.name,
-      pageDescription: 'Profile description'
-    }))
-  }
-
   componentDidMount() {
     this._fetchProfileIfNeeded()
   }

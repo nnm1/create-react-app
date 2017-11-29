@@ -11,6 +11,4 @@ create-react-app is a React application template.
 
 * [Bootstrap](https://getbootstrap.com)
 
-* [Express (for SSR)](http://expressjs.com/)
-
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
