@@ -1,11 +1,10 @@
-import _ from 'lodash'
 import React from 'react'
 import { connect } from 'react-redux'
 
 import { fetchProfile } from '../actions/profileActions'
 
 const IndexPage = ({ profile }) => {
-  if (_.isEmpty(profile)) {
+  if (Object.keys(profile).length === 0) {
     return <progress />
   }
 

@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import React from 'react'
 import { connect } from 'react-redux'
 
@@ -6,7 +5,7 @@ import { fetchProfile } from '../../../actions/profileActions'
 import MyContent from '../../../components/layout/MyContent'
 
 const ProfilePage = ({ profile }) => {
-  const content = _.isEmpty(profile) ? (
+  const content = Object.keys(profile).length === 0 ? (
     <progress />
   ) : (
     <p>Здесь будут настройки профиля для {profile.name}</p>
