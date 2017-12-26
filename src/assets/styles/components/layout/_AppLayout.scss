@@ -7,7 +7,7 @@
   background: $body-bg;
   border-right: 1px solid $gray-300;
   transform: translate3d(-100%, 0, 0);
-  z-index: 4;
+  z-index: 30;
 
   transition: transform .2s ease-in-out;
 
@@ -32,7 +32,7 @@
   background-color: $black;
   opacity: 0;
   pointer-events: none;
-  z-index: 3;
+  z-index: 20;
 
   transition: opacity 0.2s ease-in-out;
 }
