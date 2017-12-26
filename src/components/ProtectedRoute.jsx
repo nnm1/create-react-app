@@ -5,20 +5,22 @@ const isUserLoggedIn = () => {
   return true
 }
 
-const ProtectedRoute = ({ component: Component }) => {
+const ProtectedRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
+      {...rest}
       render={props =>
         isUserLoggedIn() ? (
           <Component {...props} />
         ) : (
           <Redirect
             to={{
-              pathname: '/auth/login',
+              pathname: '/login',
               state: { from: props.location }
             }}
           />
-        )}
+        )
+      }
     />
   )
 }

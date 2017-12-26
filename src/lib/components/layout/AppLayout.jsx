@@ -1,12 +1,10 @@
 import React from 'react'
-import { connect } from 'react-redux'
-
-import { toggleSidebar } from '../../../actions/layoutActions'
 
 const AppLayout = ({ sidebar, content, isSidebarVisible, onSidebarToggle }) => {
   return (
     <div
-      className={'app-layout ' + (isSidebarVisible ? '-sidebar-visible' : '')}>
+      className={'app-layout' + (isSidebarVisible ? ' -sidebar-visible' : '')}
+    >
       <aside className="app-sidebar">{sidebar}</aside>
 
       <div className="app-page">{content}</div>
@@ -20,12 +18,41 @@ const AppLayout = ({ sidebar, content, isSidebarVisible, onSidebarToggle }) => {
 // Container implementation.
 //
 
-const mapStateToProps = state => ({
-  isSidebarVisible: state.layout.isSidebarVisible
-})
+class AppLayoutContainer extends React.Component {
+  constructor(props) {
+    super(props)
 
-const mapDispatchToProps = dispatch => ({
-  onSidebarToggle: () => dispatch(toggleSidebar())
-})
+    this.state = { isSidebarVisible: false }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppLayout)
+    this._handleSidebarToggle = this._handleSidebarToggle.bind(this)
+  }
+
+  componentDidMount() {
+    document.addEventListener('onSidebarToggle', this._handleSidebarToggle)
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('onSidebarToggle', this._handleSidebarToggle)
+  }
+
+  _handleSidebarToggle() {
+    this.setState(prevState => ({
+      isSidebarVisible: !prevState.isSidebarVisible
+    }))
+  }
+
+  render() {
+    const { sidebar, content } = this.props
+    const { isSidebarVisible } = this.state
+    return (
+      <AppLayout
+        sidebar={sidebar}
+        content={content}
+        isSidebarVisible={isSidebarVisible}
+        onSidebarToggle={this._handleSidebarToggle}
+      />
+    )
+  }
+}
+
+export default AppLayoutContainer

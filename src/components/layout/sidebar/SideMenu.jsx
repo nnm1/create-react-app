@@ -1,8 +1,7 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
-import { toggleSidebar } from '../../../actions/layoutActions'
+import toggleSidebar from '../../../actions/layoutActions'
 import deviceUtil from '../../../lib/utils/deviceUtil'
 
 const menu = {
@@ -21,7 +20,7 @@ const menu = {
         }
       ]
     },
-    { icon: 'log-out', label: 'Выйти', to: '/auth/logout' }
+    { icon: 'log-out', label: 'Выйти', to: '/logout' }
   ]
 }
 
@@ -29,7 +28,7 @@ const menu = {
 // Container implementation.
 //
 
-class SideMenu extends React.PureComponent {
+class SideMenu extends React.Component {
   constructor(props) {
     super(props)
 
@@ -39,8 +38,7 @@ class SideMenu extends React.PureComponent {
   _handleNavLinkClick() {
     // Toggle the sidebar on mobile devices.
     if (deviceUtil.isMobile()) {
-      const { dispatch } = this.props
-      dispatch(toggleSidebar())
+      toggleSidebar()
     }
   }
 
@@ -57,7 +55,8 @@ class SideMenu extends React.PureComponent {
             to={link.to}
             className="nav-link"
             activeClassName="active"
-            onClick={this._handleNavLinkClick}>
+            onClick={this._handleNavLinkClick}
+          >
             {link.label}
           </NavLink>
           {renderNested()}
@@ -100,4 +99,4 @@ class SideMenu extends React.PureComponent {
   }
 }
 
-export default connect()(SideMenu)
+export default SideMenu

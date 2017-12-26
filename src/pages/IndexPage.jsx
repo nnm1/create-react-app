@@ -1,7 +1,6 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
-import { fetchProfile } from '../actions/profileActions'
+import fetchProfile from '../actions/profileActions'
 
 const IndexPage = ({ profile }) => {
   if (Object.keys(profile).length === 0) {
@@ -15,24 +14,23 @@ const IndexPage = ({ profile }) => {
 // Container implementation.
 //
 
-class IndexPageContainer extends React.PureComponent {
-  componentDidMount() {
-    this._fetchProfileIfNeeded()
+class IndexPageContainer extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { profile: {} }
   }
 
-  _fetchProfileIfNeeded() {
-    const { profile, dispatch } = this.props
-    if (_.isEmpty(profile)) {
-      dispatch(fetchProfile())
-    }
+  componentDidMount() {
+    fetchProfile()
+      .then(profile => this.setState({ profile }))
+      .catch(err => console.error(err))
   }
 
   render() {
-    const { profile } = this.props
+    const { profile } = this.state
     return <IndexPage profile={profile} />
   }
 }
 
-const mapStateToProps = state => ({ profile: state.profile.data })
-
-export default connect(mapStateToProps)(IndexPageContainer)
+export default IndexPageContainer

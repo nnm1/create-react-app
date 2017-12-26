@@ -7,8 +7,6 @@ create-react-app is a React application template.
 
 * [React Router](https://reacttraining.com/react-router)
 
-* [Redux](http://redux.js.org)
-
 * [Bootstrap](https://getbootstrap.com)
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).

@@ -1,7 +1,3 @@
-const ActionType = {
-  TOGGLE_SIDEBAR: 'TOGGLE_SIDEBAR'
-}
+const toggleSidebar = () => document.dispatchEvent(new Event('onSidebarToggle'))
 
-const toggleSidebar = () => ({ type: ActionType.TOGGLE_SIDEBAR })
-
-export { ActionType, toggleSidebar }
+export default toggleSidebar

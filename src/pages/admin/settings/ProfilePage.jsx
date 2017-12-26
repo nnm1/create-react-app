@@ -1,7 +1,6 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
-import { fetchProfile } from '../../../actions/profileActions'
+import fetchProfile from '../../../actions/profileActions'
 import MyContent from '../../../components/layout/MyContent'
 
 const ProfilePage = ({ profile }) => {
@@ -31,24 +30,23 @@ const ProfilePage = ({ profile }) => {
 // Container implementation.
 //
 
-class ProfilePageContainer extends React.PureComponent {
-  componentDidMount() {
-    this._fetchProfileIfNeeded()
+class ProfilePageContainer extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { profile: {} }
   }
 
-  _fetchProfileIfNeeded() {
-    const { profile, dispatch } = this.props
-    if (_.isEmpty(profile)) {
-      dispatch(fetchProfile())
-    }
+  componentDidMount() {
+    fetchProfile()
+      .then(profile => this.setState({ profile }))
+      .catch(err => console.error(err))
   }
 
   render() {
-    const { profile } = this.props
+    const { profile } = this.state
     return <ProfilePage profile={profile} />
   }
 }
 
-const mapStateToProps = state => ({ profile: state.profile.data })
-
-export default connect(mapStateToProps)(ProfilePageContainer)
+export default ProfilePageContainer
