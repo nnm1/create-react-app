@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'react-router-dom/Link'
 
 const SettingsLink = ({ to, text }) => (
   <div className="card text-center mb-1">

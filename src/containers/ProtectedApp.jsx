@@ -1,5 +1,6 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import Route from 'react-router-dom/Route'
+import Switch from 'react-router-dom/Switch'
 
 import MyLayout from '../components/layout/MyLayout'
 
