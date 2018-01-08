@@ -1,0 +1,10 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: $body-bg;
+
+  .action-group .btn:not(:first-child) {
+    margin-left: $spacer * 0.5;
+  }
+}

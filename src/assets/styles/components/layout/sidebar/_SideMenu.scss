@@ -1,29 +1,31 @@
 .sidemenu {
-  display: flex;
-  flex-flow: column;
-  height: calc(100% - #{$header-height});
-
-  > .-sidemenu-grow {
-    flex-grow: 1;
-    overflow-y: auto;
+  .nav-item {
+    padding-left: $spacer * 2;
   }
 
-  .nav .nav-link {
+  .nav-link {
     position: relative;
+    padding: $spacer 0;
+    color: inherit;
+    border-bottom: 1px solid $gray-800;
   }
 
-  .nav .nav-link.active {
-    color: $link-hover-color;
+  .nav-item:last-child .nav-link {
+    border-bottom: 0;
+  }
+
+  .nav-link.active,
+  .nav-link:hover {
+    color: $white;
+  }
+
+  .nav-link.active {
     font-weight: bold;
-  }
-
-  .nav.nested .nav-link {
-    padding-left: $spacer * 3;
   }
 }
 
 .sidemenu-badge {
   position: absolute;
-  top: .7rem;
+  top: 1.2rem;
   right: $spacer;
 }

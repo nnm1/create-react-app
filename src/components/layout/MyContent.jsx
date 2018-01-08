@@ -1,21 +1,16 @@
 import React from 'react'
 
-const MyContent = ({ breadcrumbs, header, actions, content }) => {
-  return (
-    <main className="container-fluid content">
-      {breadcrumbs}
-
-      <div className="row mb-3">
-        <div className="col-12 col-md">{header}</div>
-
-        {actions && (
-          <div className="col-12 col-md-auto action-group">{actions}</div>
-        )}
+const MyContent = ({ header, actions, content }) => (
+  <div className="container-fluid">
+    <div className="my-2 header">
+      <div className="row align-items-center">
+        <div className="col">{header}</div>
+        {actions && <div className="col-auto action-group">{actions}</div>}
       </div>
+    </div>
 
-      {content}
-    </main>
-  )
-}
+    <main className="content">{content}</main>
+  </div>
+)
 
 export default MyContent

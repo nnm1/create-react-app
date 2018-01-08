@@ -5,14 +5,13 @@ const isUserLoggedIn = () => {
   return true
 }
 
-const ProtectedRoute = ({ component: Component, ...rest }) => {
-  return (
-    <Route
-      {...rest}
-      render={props =>
-        isUserLoggedIn() ? (
-          <Component {...props} />
-        ) : (
+const ProtectedRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      isUserLoggedIn() ? (
+        <Component {...props} />
+      ) : (
           <Redirect
             to={{
               pathname: '/login',
@@ -20,9 +19,8 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
             }}
           />
         )
-      }
-    />
-  )
-}
+    }
+  />
+)
 
 export default ProtectedRoute

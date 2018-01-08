@@ -1,12 +1,13 @@
 import React from 'react'
+import _isEmpty from 'lodash/isEmpty'
 
 import fetchProfile from '../actions/profileActions'
+import Progress from '../lib/components/Progress'
 
 const IndexPage = ({ profile }) => {
-  if (Object.keys(profile).length === 0) {
-    return <progress />
+  if (_isEmpty(profile)) {
+    return <Progress />
   }
-
   return <p>Добро пожаловать, {profile.name}</p>
 }
 

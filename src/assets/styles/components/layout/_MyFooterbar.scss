@@ -1,0 +1,24 @@
+.footerbar {
+  font-size: $font-size-sm;
+
+  .nav-link {
+    position: relative;
+    color: inherit;
+    padding: $spacer * 0.75 $spacer * 0.5;
+  }
+
+  .nav-item:last-child .nav-link {
+    border-right: 0;
+  }
+
+  .nav-link.active {
+    color: $white;
+    font-weight: bold;
+  }
+}
+
+.footerbar-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.2rem;
+}

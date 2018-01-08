@@ -1,28 +1,19 @@
 import React from 'react'
+import _isEmpty from 'lodash/isEmpty'
 
 import fetchProfile from '../../../actions/profileActions'
 import MyContent from '../../../components/layout/MyContent'
+import Progress from '../../../lib/components/Progress'
 
 const ProfilePage = ({ profile }) => {
-  const content = Object.keys(profile).length === 0 ? (
-    <progress />
+  const content = _isEmpty(profile) ? (
+    <Progress />
   ) : (
     <p>Здесь будут настройки профиля для {profile.name}</p>
   )
 
   return (
-    <MyContent
-      header={<h1>Мой профиль</h1>}
-      breadcrumbs={
-        <ul className="breadcrumb">
-          <li className="breadcrumb-item">Настройки</li>
-          {/* <li className="breadcrumb-item">
-            <Link to="/settings">Настройки</Link>
-          </li> */}
-        </ul>
-      }
-      content={content}
-    />
+    <MyContent header={<h1>Мой профиль</h1>} content={content} />
   )
 }
 

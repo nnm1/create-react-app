@@ -1,14 +1,15 @@
 import React from 'react'
 
-import AppLayout from '../../lib/components/layout/AppLayout'
-
+import AppLayout from './AppLayout'
+import MyFooterbar from './MyFooterbar'
 import MySidebar from './MySidebar'
-import MyPage from './MyPage'
 
-const MyLayout = ({ children }) => {
-  return (
-    <AppLayout sidebar={<MySidebar />} content={<MyPage>{children}</MyPage>} />
-  )
-}
+const MyLayout = ({ children }) => (
+  <AppLayout
+    sidebar={<MySidebar />}
+    content={children}
+    footerbar={<MyFooterbar />}
+  />
+)
 
 export default MyLayout
