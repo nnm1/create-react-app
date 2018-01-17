@@ -33,7 +33,9 @@ const SettingsPage = () => {
       </SettingsBlock>
     </React.Fragment>
   )
-  return <MyContent header={<h1>Настройки</h1>} content={content} />
+  return (
+    <MyContent header={<h1 className="h2">Настройки</h1>} content={content} />
+  )
 }
 
 export default SettingsPage

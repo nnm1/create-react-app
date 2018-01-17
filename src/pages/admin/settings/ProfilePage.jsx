@@ -13,7 +13,7 @@ const ProfilePage = ({ profile }) => {
   )
 
   return (
-    <MyContent header={<h1>Мой профиль</h1>} content={content} />
+    <MyContent header={<h1 className="h2">Мой профиль</h1>} content={content} />
   )
 }
 
