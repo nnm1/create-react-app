@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Progress = () => (
-  <div className="text-center">
-    <progress />
-  </div>
-)
-
-export default Progress
+export default function Progress() {
+  return (
+    <div className="text-center">
+      <progress />
+    </div>
+  )
+}

@@ -1,11 +1,11 @@
-$header-height: 5rem;
+$logo-height: 5rem;
 
 .logo {
   display: flex;
   justify-content: center;
   align-items: center;
 
-  height: $header-height;
+  height: $logo-height;
   color: $white;
   font-weight: bold;
 }

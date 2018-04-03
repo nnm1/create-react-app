@@ -9,16 +9,16 @@ import NotFoundPage from '../pages/NotFoundPage'
 import ProtectedRoute from '../lib/components/ProtectedRoute'
 import ProtectedApp from './ProtectedApp'
 
-const ClientApp = () => (
-  <BrowserRouter>
-    <Switch>
-      <Route exact path='/' component={IndexPage} />
+export default function ClientApp() {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={IndexPage} />
 
-      <ProtectedRoute path="/admin" component={ProtectedApp} />
+        <ProtectedRoute path="/admin" component={ProtectedApp} />
 
-      <Route path="*" component={NotFoundPage} />
-    </Switch>
-  </BrowserRouter>
-)
-
-export default ClientApp
+        <Route path="*" component={NotFoundPage} />
+      </Switch>
+    </BrowserRouter>
+  )
+}

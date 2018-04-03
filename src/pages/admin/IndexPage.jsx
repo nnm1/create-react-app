@@ -3,7 +3,7 @@ import Link from 'react-router-dom/Link'
 
 import MyContent from '../../components/layout/MyContent'
 
-const IndexPage = () => {
+export default function IndexPage() {
   const content = <p>Здесь будет общая информация, статистика и т.п.</p>
   return (
     <MyContent
@@ -17,5 +17,3 @@ const IndexPage = () => {
     />
   )
 }
-
-export default IndexPage

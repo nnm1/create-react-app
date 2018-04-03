@@ -1,6 +1,6 @@
 import React from 'react'
-import Route from 'react-router-dom/Route'
 import Redirect from 'react-router-dom/Redirect'
+import Route from 'react-router-dom/Route'
 
 const isUserLoggedIn = () => {
   return true
@@ -13,13 +13,13 @@ const ProtectedRoute = ({ component: Component, ...rest }) => (
       isUserLoggedIn() ? (
         <Component {...props} />
       ) : (
-          <Redirect
-            to={{
-              pathname: '/login',
-              state: { from: props.location }
-            }}
-          />
-        )
+        <Redirect
+          to={{
+            pathname: '/login',
+            state: { from: props.location }
+          }}
+        />
+      )
     }
   />
 )

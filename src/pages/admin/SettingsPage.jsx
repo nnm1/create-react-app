@@ -5,7 +5,7 @@ import SettingsBlock from '../../components/settings/SettingsBlock'
 import SettingsCard from '../../components/settings/SettingsCard'
 import SettingsLink from '../../components/settings/SettingsLink'
 
-const SettingsPage = () => {
+export default function SettingsPage() {
   const content = (
     <React.Fragment>
       <SettingsBlock header={<h4>Справочники</h4>}>
@@ -33,9 +33,5 @@ const SettingsPage = () => {
       </SettingsBlock>
     </React.Fragment>
   )
-  return (
-    <MyContent header={<h1 className="h2">Настройки</h1>} content={content} />
-  )
+  return <MyContent header={<h1 className="h2">Настройки</h1>} content={content} />
 }
-
-export default SettingsPage

@@ -5,4 +5,6 @@ const menu = [
   { label: 'Настройки', to: '/admin/settings' }
 ]
 
-export default menu
+export function getMenu() {
+  return menu
+}

@@ -5,23 +5,20 @@ import fetchProfile from '../../../actions/profileActions'
 import MyContent from '../../../components/layout/MyContent'
 import Progress from '../../../lib/components/Progress'
 
-const ProfilePage = ({ profile }) => {
+function ProfilePage({ profile }) {
   const content = _isEmpty(profile) ? (
     <Progress />
   ) : (
     <p>Здесь будут настройки профиля для {profile.name}</p>
   )
-
-  return (
-    <MyContent header={<h1 className="h2">Мой профиль</h1>} content={content} />
-  )
+  return <MyContent header={<h1 className="h2">Мой профиль</h1>} content={content} />
 }
 
 //
 // Container implementation.
 //
 
-class ProfilePageContainer extends React.Component {
+export default class ProfilePageContainer extends React.Component {
   constructor(props) {
     super(props)
 
@@ -39,5 +36,3 @@ class ProfilePageContainer extends React.Component {
     return <ProfilePage profile={profile} />
   }
 }
-
-export default ProfilePageContainer
