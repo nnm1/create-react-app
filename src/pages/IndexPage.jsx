@@ -1,7 +1,7 @@
 import React from 'react'
 import _isEmpty from 'lodash/isEmpty'
 
-import fetchProfile from '../actions/profileActions'
+import { fetchProfile } from '../actions/profileActions'
 import Progress from '../lib/components/Progress'
 
 function IndexPage({ profile }) {
