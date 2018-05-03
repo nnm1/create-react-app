@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function MyContent({ header, actions, content }) {
   return (
-    <React.Fragment>
+    <div className="app-content">
       <header className="container-fluid py-2 header">
         <div className="row align-items-center">
           <div className="col-12 col-sm">{header}</div>
@@ -11,6 +11,6 @@ export default function MyContent({ header, actions, content }) {
       </header>
 
       <main className="container-fluid py-2 content">{content}</main>
-    </React.Fragment>
+    </div>
   )
 }
