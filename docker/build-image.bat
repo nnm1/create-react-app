@@ -1,3 +1,0 @@
-@REM Build the image from a Dockerfile.
-
-docker build -t react-app .
