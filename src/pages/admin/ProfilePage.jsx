@@ -2,6 +2,7 @@ import React from 'react'
 import _isEmpty from 'lodash/isEmpty'
 
 import { fetchProfile } from '../../actions/profileActions'
+import Main from '../../components/layout/Main'
 import Progress from '../../lib/components/Progress'
 
 export default class ProfilePage extends React.Component {
@@ -18,17 +19,21 @@ export default class ProfilePage extends React.Component {
   }
 
   render() {
+    const actions = (
+      <button type="button" className="btn btn-warning">Save</button>
+    )
+
     const profile = this.state.profile
     const content = _isEmpty(profile) ? (
       <Progress />
     ) : (
       <p>Profile settings for {profile.name} go here</p>
     )
+
     return (
-      <React.Fragment>
-        <h1 className="h3">My Profile</h1>
+      <Main header="My Profile" actions={actions}>
         {content}
-      </React.Fragment>
+      </Main>
     )
   }
 }

@@ -2,7 +2,20 @@ import React from 'react'
 import Link from 'react-router-dom/Link'
 import NavLink from 'react-router-dom/NavLink'
 
-export default function Topbar() {
+function DefaultActions() {
+  return (
+    <nav className="navbar-nav">
+      <NavLink className="nav-link" to="/admin/profile">
+        Profile
+        </NavLink>
+      <Link className="nav-link" to="/logout">
+        Logout
+        </Link>
+    </nav>
+  )
+}
+
+export default function Topbar({ header, children }) {
   return (
     <nav className="navbar navbar-expand navbar-dark fixed-top bg-primary topbar">
       <span className="navbar-brand mr-auto">
@@ -13,17 +26,10 @@ export default function Topbar() {
           height="25"
           alt=""
         />
-        Header
+        {header}
       </span>
 
-      <nav className="navbar-nav">
-        <NavLink className="nav-link" to="/admin/profile">
-          Profile
-        </NavLink>
-        <Link className="nav-link" to="/logout">
-          Logout
-        </Link>
-      </nav>
+      {children || <DefaultActions />}
     </nav>
   )
 }
