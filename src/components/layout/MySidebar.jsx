@@ -4,7 +4,7 @@ import Menu from '../Menu'
 
 export default function MySidebar() {
   return (
-    <div className="sticky-top sidebar">
+    <div className="sidebar">
       <Menu />
     </div>
   )

@@ -4,7 +4,7 @@ import NavLink from 'react-router-dom/NavLink'
 
 export default function MyTopbar() {
   return (
-    <nav className="navbar navbar-expand navbar-dark bg-primary topbar">
+    <nav className="navbar navbar-expand navbar-dark fixed-top bg-primary topbar">
       <span className="navbar-brand mr-auto">
         <img
           src="https://getbootstrap.com/docs/4.1/assets/brand/bootstrap-solid.svg"

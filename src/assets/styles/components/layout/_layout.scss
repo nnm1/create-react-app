@@ -1,0 +1,18 @@
+$footerbar-height: 40px;
+$topbar-height:    64px;
+$sidebar-width:    160px; // TODO: Container width * col-lg-2 - padding-right.
+
+.page {
+  padding-top: $topbar-height;
+  padding-bottom: $footerbar-height;
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 0;
+  }
+}
+
+.sidebar {
+  position: fixed;
+  top: $topbar-height;
+  width: $sidebar-width;
+}
