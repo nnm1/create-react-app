@@ -2,16 +2,18 @@ import React from 'react'
 import Link from 'react-router-dom/Link'
 import NavLink from 'react-router-dom/NavLink'
 
-export default function MyTopbar() {
+export default function Topbar() {
   return (
     <nav className="navbar navbar-expand navbar-dark fixed-top bg-primary topbar">
       <span className="navbar-brand mr-auto">
         <img
+          className="mr-2"
           src="https://getbootstrap.com/docs/4.1/assets/brand/bootstrap-solid.svg"
           width="25"
           height="25"
           alt=""
         />
+        Header
       </span>
 
       <nav className="navbar-nav">

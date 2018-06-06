@@ -2,7 +2,7 @@ import React from 'react'
 import Route from 'react-router-dom/Route'
 import Switch from 'react-router-dom/Switch'
 
-import MyLayout from '../components/layout/MyLayout'
+import Page from '../components/layout/Page'
 
 import IndexPage from '../pages/admin/IndexPage'
 import ProfilePage from '../pages/admin/ProfilePage'
@@ -12,7 +12,7 @@ import NotFoundPage from '../pages/NotFoundPage'
 
 export default function ProtectedApp() {
   return (
-    <MyLayout>
+    <Page>
       <Switch>
         <Route exact path="/admin" component={IndexPage} />
         <Route exact path="/admin/profile" component={ProfilePage} />
@@ -20,6 +20,6 @@ export default function ProtectedApp() {
 
         <Route path="*" component={NotFoundPage} />
       </Switch>
-    </MyLayout>
+    </Page>
   )
 }

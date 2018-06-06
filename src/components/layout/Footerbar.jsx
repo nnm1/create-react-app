@@ -9,7 +9,7 @@ function FooterLink({ to, exact, children }) {
   )
 }
 
-export default function MyFooterbar() {
+export default function Footerbar() {
   return (
     <div className="fixed-bottom bg-light d-lg-none footerbar">
       <nav className="nav nav-pills nav-fill">
