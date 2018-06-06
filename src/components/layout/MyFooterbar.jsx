@@ -18,8 +18,9 @@ function Link({ link }) {
 
 export default function MyFooterbar() {
   return (
-    <nav className="nav justify-content-around align-items-center footerbar">
-      {getMenu().map(link => <Link link={link} />)}
-    </nav>
+    // <nav className="nav justify-content-around align-items-center footerbar">
+    //   {getMenu().map(link => <Link link={link} />)}
+    // </nav>
+    null
   )
 }

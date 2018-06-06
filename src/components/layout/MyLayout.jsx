@@ -2,10 +2,13 @@ import React from 'react'
 
 import AppLayout from './AppLayout'
 import MyFooterbar from './MyFooterbar'
-import MySidebar from './MySidebar'
+import MyPage from './MyPage'
+import MyTopbar from './MyTopbar'
 
 export default function MyLayout({ children }) {
   return (
-    <AppLayout sidebar={<MySidebar />} content={children} footerbar={<MyFooterbar />} />
+    <AppLayout topbar={<MyTopbar />} footerbar={<MyFooterbar />}>
+      <MyPage>{children}</MyPage>
+    </AppLayout>
   )
 }

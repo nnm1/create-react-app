@@ -7,13 +7,14 @@ export default function IndexPage() {
   const content = <p>Здесь будет общая информация, статистика и т.п.</p>
   return (
     <MyContent
-      header={<h1 className="h2">Главная с очень длинным названием</h1>}
+      header={<h1 className="h3">Главная страница</h1>}
       actions={
-        <Link to="/admin/profile" className="btn btn-primary">
+        <Link to="/admin/profile" className="btn btn-primary mb-2">
           Профиль
         </Link>
       }
-      content={content}
-    />
+    >
+      {content}
+    </MyContent>
   )
 }

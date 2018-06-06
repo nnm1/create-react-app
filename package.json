@@ -17,12 +17,12 @@
   },
   "scripts": {
     "build": "npm run build:css && cross-env GENERATE_SOURCEMAP=false react-scripts build",
-    "build:css": "node-sass-chokidar ./src/assets/styles/app.scss -o ./src/assets/styles",
+    "build:css": "node-sass-chokidar src/assets/styles/app.scss -o src/assets/styles",
     "eject": "react-scripts eject",
     "poll": "cross-env CHOKIDAR_USEPOLLING=true npm run start",
     "start": "npm-run-all -p watch:css start:js",
     "start:js": "cross-env PORT=3000 react-scripts start",
     "test": "react-scripts test --env=jsdom",
-    "watch:css": "npm run build:css && node-sass-chokidar ./src/assets/styles/app.scss -o ./src/assets/styles --watch --recursive"
+    "watch:css": "npm run build:css && node-sass-chokidar src/assets/styles/app.scss -o src/assets/styles --watch --recursive"
   }
 }

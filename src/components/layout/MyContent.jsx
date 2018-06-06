@@ -1,16 +1,14 @@
 import React from 'react'
 
-export default function MyContent({ header, actions, content }) {
+export default function MyContent({ header, actions, children }) {
   return (
-    <div className="my-content py-2">
-      <header className="container-fluid header">
-        <div className="row align-items-center">
-          {header && <div className="col-12 col-sm">{header}</div>}
-          {actions && <div className="col-12 col-sm-auto btn-group">{actions}</div>}
-        </div>
-      </header>
+    <div className="content-wrapper">
+      <div className="row align-items-center">
+        {header && <div className="col-12 col-sm">{header}</div>}
+        {actions && <div className="col-12 col-sm-auto btn-group">{actions}</div>}
+      </div>
 
-      <main className="container-fluid content pt-2">{content}</main>
+      <div className="content">{children}</div>
     </div>
   )
 }

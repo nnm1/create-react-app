@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function AppLayout({ sidebar, content, footerbar }) {
+export default function AppLayout({ topbar, footerbar, children }) {
   return (
     <div className="app-layout">
-      <aside className="app-sidebar">{sidebar}</aside>
-      <div className="app-page">{content}</div>
+      <header className="app-topbar">{topbar}</header>
+      <main className="app-page">{children}</main>
       <footer className="app-footerbar">{footerbar}</footer>
     </div>
   )

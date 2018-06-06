@@ -25,6 +25,6 @@ export default class ProfilePage extends React.Component {
     ) : (
       <p>Здесь будут настройки профиля для {profile.name}</p>
     )
-    return <MyContent header={<h1 className="h2">Мой профиль</h1>} content={content} />
+    return <MyContent header={<h1 className="h3">Мой профиль</h1>}>{content}</MyContent>
   }
 }
