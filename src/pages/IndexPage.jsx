@@ -4,18 +4,7 @@ import _isEmpty from 'lodash/isEmpty'
 import { fetchProfile } from '../actions/profileActions'
 import Progress from '../lib/components/Progress'
 
-function IndexPage({ profile }) {
-  if (_isEmpty(profile)) {
-    return <Progress />
-  }
-  return <p>Добро пожаловать, {profile.name}</p>
-}
-
-//
-// Container implementation.
-//
-
-export default class IndexPageContainer extends React.Component {
+export default class IndexPage extends React.PureComponent {
   constructor(props) {
     super(props)
 
@@ -29,7 +18,10 @@ export default class IndexPageContainer extends React.Component {
   }
 
   render() {
-    const { profile } = this.state
-    return <IndexPage profile={profile} />
+    const profile = this.state.profile
+    if (_isEmpty(profile)) {
+      return <Progress />
+    }
+    return <p>Добро пожаловать, {profile.name}</p>
   }
 }

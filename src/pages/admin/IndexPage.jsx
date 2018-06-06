@@ -9,7 +9,7 @@ export default function IndexPage() {
     <MyContent
       header={<h1 className="h2">Главная с очень длинным названием</h1>}
       actions={
-        <Link to="/admin/settings/profile" className="btn btn-primary">
+        <Link to="/admin/profile" className="btn btn-primary">
           Профиль
         </Link>
       }

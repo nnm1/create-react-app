@@ -1,11 +1,11 @@
-$logo-height: 5rem;
+$account-height: 5rem;
 
-.logo {
+.account {
   display: flex;
   justify-content: center;
   align-items: center;
 
-  height: $logo-height;
+  height: $account-height;
   color: $white;
   font-weight: bold;
 }

@@ -1,13 +1,13 @@
 import React from 'react'
 
-import Logo from './sidebar/Logo'
-import SideMenu from './sidebar/SideMenu'
+import Account from './sidebar/Account'
+import Sidemenu from './sidebar/Sidemenu'
 
 export default function MySidebar() {
   return (
     <React.Fragment>
-      <Logo />
-      <SideMenu />
+      <Account />
+      <Sidemenu />
     </React.Fragment>
   )
 }

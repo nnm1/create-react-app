@@ -3,15 +3,10 @@ import NavLink from 'react-router-dom/NavLink'
 
 import { getMenu } from '../../../actions/menuActions'
 
-function renderLink(link) {
+function Link({ link }) {
   return (
     <li className="nav-item" key={link.to}>
-      <NavLink
-        exact={link.to === '/admin'}
-        to={link.to}
-        className="nav-link"
-        activeClassName="active"
-      >
+      <NavLink exact={link.to === '/admin'} to={link.to} className="nav-link">
         {link.label}
 
         {/* Sample badge */}
@@ -21,10 +16,10 @@ function renderLink(link) {
   )
 }
 
-export default function SideMenu() {
+export default function Sidemenu() {
   return (
     <nav className="nav flex-column sidemenu">
-      {getMenu().map(link => renderLink(link))}
+      {getMenu().map(link => <Link link={link} />)}
     </nav>
   )
 }

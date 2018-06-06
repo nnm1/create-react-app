@@ -3,15 +3,10 @@ import NavLink from 'react-router-dom/NavLink'
 
 import { getMenu } from '../../actions/menuActions'
 
-function renderLink(link) {
+function Link({ link }) {
   return (
     <li className="nav-item" key={link.to}>
-      <NavLink
-        exact={link.to === '/admin'}
-        to={link.to}
-        className="nav-link"
-        activeClassName="active"
-      >
+      <NavLink exact={link.to === '/admin'} to={link.to} className="nav-link">
         {link.label}
 
         {/* Sample badge */}
@@ -24,7 +19,7 @@ function renderLink(link) {
 export default function MyFooterbar() {
   return (
     <nav className="nav justify-content-around align-items-center footerbar">
-      {getMenu().map(link => renderLink(link))}
+      {getMenu().map(link => <Link link={link} />)}
     </nav>
   )
 }

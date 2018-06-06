@@ -7,8 +7,7 @@ import MyLayout from '../components/layout/MyLayout'
 import IndexPage from '../pages/admin/IndexPage'
 import NotFoundPage from '../pages/NotFoundPage'
 
-import SettingsPage from '../pages/admin/SettingsPage'
-import ProfilePage from '../pages/admin/settings/ProfilePage'
+import ProfilePage from '../pages/admin/ProfilePage'
 
 export default function ProtectedApp() {
   return (
@@ -16,8 +15,7 @@ export default function ProtectedApp() {
       <Switch>
         <Route exact path="/admin" component={IndexPage} />
 
-        <Route exact path="/admin/settings" component={SettingsPage} />
-        <Route exact path="/admin/settings/profile" component={ProfilePage} />
+        <Route exact path="/admin/profile" component={ProfilePage} />
 
         <Route path="*" component={NotFoundPage} />
       </Switch>

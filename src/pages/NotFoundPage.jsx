@@ -1,7 +1,8 @@
 import React from 'react'
 
+import MyContent from '../components/layout/MyContent'
 import NotFound from '../lib/components/NotFound'
 
 export default function NotFoundPage() {
-  return <NotFound />
+  return <MyContent content={<NotFound />} />
 }
