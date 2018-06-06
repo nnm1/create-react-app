@@ -1,0 +1,9 @@
+$footerbar-height: 40px;
+
+.page {
+  padding-bottom: $footerbar-height;
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 0;
+  }
+}
