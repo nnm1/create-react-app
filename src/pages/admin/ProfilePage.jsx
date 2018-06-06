@@ -22,7 +22,7 @@ export default class ProfilePage extends React.Component {
     const content = _isEmpty(profile) ? (
       <Progress />
     ) : (
-      <p>Здесь будут настройки профиля для {profile.name}</p>
+      <p>Profile settings for {profile.name} go here</p>
     )
     return (
       <React.Fragment>

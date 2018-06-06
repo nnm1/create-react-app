@@ -15,10 +15,10 @@ function MenuLink({ to, exact, children }) {
 
 export default function Menu() {
   return (
-    <React.Fragment>
+    <div className="menu">
       {/* Group 1 */}
       <Nav>
-        <a className="nav-link disabled">Group 1</a>
+        <span className="nav-link disabled">Group 1</span>
 
         <MenuLink to="/admin" exact>
           Main
@@ -29,22 +29,12 @@ export default function Menu() {
 
       {/* Group 2 */}
       <Nav>
-        <a className="nav-link disabled">Group 2</a>
+        <span className="nav-link disabled">Group 2</span>
 
         <MenuLink to="/admin/nav2">Nav 2</MenuLink>
         <MenuLink to="/admin/nav3">Nav 3</MenuLink>
         <MenuLink to="/admin/nav4">Nav 4</MenuLink>
       </Nav>
-
-      {/* Group 3 */}
-      <Nav>
-        <a className="nav-link disabled">Group 3</a>
-
-        <MenuLink to="/admin/nav5">Nav 5</MenuLink>
-        <MenuLink to="/admin/nav6">Nav 6</MenuLink>
-        <MenuLink to="/admin/nav7">Nav 7</MenuLink>
-        <MenuLink to="/admin/nav8">Nav 8</MenuLink>
-      </Nav>
-    </React.Fragment>
+    </div>
   )
 }

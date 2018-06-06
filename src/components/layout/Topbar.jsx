@@ -7,7 +7,7 @@ export default function Topbar() {
     <nav className="navbar navbar-expand navbar-dark fixed-top bg-primary topbar">
       <span className="navbar-brand mr-auto">
         <img
-          className="mr-2"
+          className="align-bottom mr-2"
           src="https://getbootstrap.com/docs/4.1/assets/brand/bootstrap-solid.svg"
           width="25"
           height="25"

@@ -22,6 +22,6 @@ export default class IndexPage extends React.PureComponent {
     if (_isEmpty(profile)) {
       return <Progress />
     }
-    return <p>Добро пожаловать, {profile.name}</p>
+    return <p>Welcome, {profile.name}</p>
   }
 }
