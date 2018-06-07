@@ -8,7 +8,7 @@ import IndexPage from '../pages/admin/IndexPage'
 import ProfilePage from '../pages/admin/ProfilePage'
 import MenuPage from '../pages/admin/MenuPage'
 
-import NotFoundPage from '../pages/NotFoundPage'
+import NotFoundPage from '../pages/admin/NotFoundPage'
 
 export default function ProtectedApp() {
   return (

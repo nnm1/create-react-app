@@ -15,13 +15,18 @@ function MenuLink({ to, exact, children }) {
 
 function MenuBadge({ children }) {
   return (
-    <span className="badge badge-pill badge-danger float-right mt-1">{children}</span>
+    <span
+      className="badge badge-pill badge-danger float-right"
+      style={{ marginTop: '3px' }}
+    >
+      {children}
+    </span>
   )
 }
 
 export default function Menu() {
   return (
-    <div className="menu">
+    <React.Fragment>
       {/* Group 1 */}
       <Nav>
         <span className="nav-link disabled">Group 1</span>
@@ -44,6 +49,6 @@ export default function Menu() {
         <MenuLink to="/admin/nav3">Nav 3</MenuLink>
         <MenuLink to="/admin/nav4">Nav 4</MenuLink>
       </Nav>
-    </div>
+    </React.Fragment>
   )
 }
