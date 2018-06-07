@@ -1,6 +1,9 @@
 $footerbar-height: 40px;
 $topbar-height:    64px;
-$sidebar-width:    160px; // TODO: Container width * col-lg-2 - padding-right.
+
+// TODO: Container width * col-<breakpoint>-2 - padding-left - padding-right.
+$sidebar-width-lg: 130px;
+$sidebar-width-xl: 160px;
 
 .page {
   padding-top: $topbar-height;
@@ -14,5 +17,9 @@ $sidebar-width:    160px; // TODO: Container width * col-lg-2 - padding-right.
 .sidebar {
   position: fixed;
   top: $topbar-height;
-  width: $sidebar-width;
+  width: $sidebar-width-lg;
+
+  @include media-breakpoint-up(xl) {
+    width: $sidebar-width-xl;
+  }
 }
