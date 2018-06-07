@@ -3,9 +3,20 @@ import NavLink from 'react-router-dom/NavLink'
 
 function FooterLink({ to, exact, children }) {
   return (
-    <NavLink className="nav-item nav-link" to={to} exact={exact}>
+    <NavLink className="nav-item nav-link position-relative" to={to} exact={exact}>
       {children}
     </NavLink>
+  )
+}
+
+function FooterBadge({ children }) {
+  return (
+    <span
+      className="badge badge-pill badge-danger position-absolute"
+      style={{ top: '0.25rem' }}
+    >
+      {children}
+    </span>
   )
 }
 
@@ -17,7 +28,10 @@ export default function Footerbar() {
           Main
         </FooterLink>
         <FooterLink to="/admin/profile">Profile</FooterLink>
-        <FooterLink to="/admin/nav1">Nav 1</FooterLink>
+        <FooterLink to="/admin/nav1">
+          Nav 1
+          <FooterBadge>1</FooterBadge>
+        </FooterLink>
         <FooterLink to="/admin/menu">Menu</FooterLink>
       </nav>
     </div>

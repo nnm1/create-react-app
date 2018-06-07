@@ -13,6 +13,12 @@ function MenuLink({ to, exact, children }) {
   )
 }
 
+function MenuBadge({ children }) {
+  return (
+    <span className="badge badge-pill badge-danger float-right mt-1">{children}</span>
+  )
+}
+
 export default function Menu() {
   return (
     <div className="menu">
@@ -24,7 +30,10 @@ export default function Menu() {
           Main
         </MenuLink>
         <MenuLink to="/admin/profile">Profile</MenuLink>
-        <MenuLink to="/admin/nav1">Nav 1</MenuLink>
+        <MenuLink to="/admin/nav1">
+          Nav 1
+          <MenuBadge>1</MenuBadge>
+        </MenuLink>
       </Nav>
 
       {/* Group 2 */}
