@@ -7,10 +7,10 @@ function DefaultActions() {
     <nav className="navbar-nav">
       <NavLink className="nav-link" to="/admin/profile">
         Profile
-        </NavLink>
+      </NavLink>
       <Link className="nav-link" to="/logout">
         Logout
-        </Link>
+      </Link>
     </nav>
   )
 }

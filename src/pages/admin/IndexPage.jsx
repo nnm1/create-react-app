@@ -5,7 +5,12 @@ import Main from '../../components/layout/Main'
 export default function IndexPage() {
   return (
     <Main header="Main Page">
-      <p>Statistics, reports, charts, etc. go here</p>
+      <section className="card">
+        <div className="card-body">
+          <h4 className="card-title">Main Page</h4>
+          <p className="card-text">Statistics, reports, charts, etc. go here</p>
+        </div>
+      </section>
     </Main>
   )
 }

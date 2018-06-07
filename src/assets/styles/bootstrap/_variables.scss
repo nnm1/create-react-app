@@ -5,3 +5,15 @@
 //
 // Variables should follow the `$component-state-property-size` formula for
 // consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+
+//
+// Color system
+//
+
+$gray-200: #e9ecef !default;
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg: $gray-200 !default;

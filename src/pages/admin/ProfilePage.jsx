@@ -20,19 +20,26 @@ export default class ProfilePage extends React.Component {
 
   render() {
     const actions = (
-      <button type="button" className="btn btn-warning">Save</button>
+      <button type="button" className="btn btn-warning">
+        Save
+      </button>
     )
 
     const profile = this.state.profile
-    const content = _isEmpty(profile) ? (
+    const cardContent = _isEmpty(profile) ? (
       <Progress />
     ) : (
-      <p>Profile settings for {profile.name} go here</p>
+      <p className="card-text">Profile settings for {profile.name} go here</p>
     )
 
     return (
       <Main header="My Profile" actions={actions}>
-        {content}
+        <section className="card">
+          <div className="card-body">
+            <h4 className="card-title">My Profile</h4>
+            {cardContent}
+          </div>
+        </section>
       </Main>
     )
   }
