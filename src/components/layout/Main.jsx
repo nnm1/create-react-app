@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 
 import Content from './Content'
@@ -16,4 +17,11 @@ export default function Main({ back, header, actions, children }) {
       </main>
     </React.Fragment>
   )
+}
+
+Main.propTypes = {
+  back: PropTypes.bool,
+  header: PropTypes.string,
+  actions: PropTypes.element,
+  children: PropTypes.element.isRequired
 }

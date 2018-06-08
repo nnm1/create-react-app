@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 
 import Menu from '../Menu'
@@ -20,4 +21,8 @@ export default function Content({ children }) {
       </div>
     </div>
   )
+}
+
+Content.propTypes = {
+  children: PropTypes.element.isRequired
 }

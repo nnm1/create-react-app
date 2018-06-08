@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 
 import Footerbar from './Footerbar'
@@ -13,4 +14,8 @@ export default function Page({ children }) {
       </footer>
     </div>
   )
+}
+
+Page.propTypes = {
+  children: PropTypes.element.isRequired
 }

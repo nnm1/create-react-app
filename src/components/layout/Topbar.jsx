@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import Link from 'react-router-dom/Link'
 import NavLink from 'react-router-dom/NavLink'
@@ -43,6 +44,12 @@ function Topbar({ back, header, children, history }) {
       </div>
     </nav>
   )
+}
+
+Topbar.propTypes = {
+  back: PropTypes.bool,
+  header: PropTypes.string,
+  children: PropTypes.element
 }
 
 export default withRouter(Topbar)
