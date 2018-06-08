@@ -33,7 +33,7 @@ export default class ProfilePage extends React.PureComponent {
     )
 
     return (
-      <Main header="My Profile" actions={actions}>
+      <Main header="My Profile" actions={actions} back>
         <section className="card">
           <div className="card-body">
             <h4 className="card-title">My Profile</h4>
