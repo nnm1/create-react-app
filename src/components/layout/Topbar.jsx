@@ -23,7 +23,7 @@ function DefaultActions() {
 
 function Topbar({ back, header, children, history }) {
   return (
-    <nav className="navbar navbar-expand navbar-dark fixed-top bg-primary topbar">
+    <header className="navbar navbar-expand navbar-dark fixed-top bg-primary">
       <div className="container">
         {/* Back button */}
         {back && (
@@ -42,7 +42,7 @@ function Topbar({ back, header, children, history }) {
         {/* Actions */}
         {children || <DefaultActions />}
       </div>
-    </nav>
+    </header>
   )
 }
 

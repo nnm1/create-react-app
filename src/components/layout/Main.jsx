@@ -7,14 +7,10 @@ import Topbar from './Topbar'
 export default function Main({ back, header, actions, children }) {
   return (
     <React.Fragment>
-      <header className="topbar">
-        <Topbar header={header} back={back}>
-          {actions}
-        </Topbar>
-      </header>
-      <main className="main">
-        <Content>{children}</Content>
-      </main>
+      <Topbar header={header} back={back}>
+        {actions}
+      </Topbar>
+      <Content>{children}</Content>
     </React.Fragment>
   )
 }

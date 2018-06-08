@@ -22,7 +22,7 @@ function FooterBadge({ children }) {
 
 export default function Footerbar() {
   return (
-    <div className="fixed-bottom bg-light d-lg-none footerbar">
+    <footer className="fixed-bottom bg-light d-lg-none">
       <nav className="nav nav-pills nav-fill">
         <FooterLink to="/admin" exact>
           Main
@@ -34,6 +34,6 @@ export default function Footerbar() {
         </FooterLink>
         <FooterLink to="/admin/menu">Menu</FooterLink>
       </nav>
-    </div>
+    </footer>
   )
 }
