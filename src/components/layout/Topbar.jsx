@@ -26,7 +26,7 @@ function Topbar({ back, header, children, history }) {
       <div className="container">
         {/* Back button */}
         {back && (
-          <nav className="navbar-nav mr-1">
+          <nav className="navbar-nav mr-2">
             <button
               type="button"
               className="btn btn-link nav-link border-0"

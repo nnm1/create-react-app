@@ -1,11 +1,10 @@
 import React from 'react'
 
-import NotFound from '../lib/components/NotFound'
-
 export default function NotFoundPage() {
   return (
-    <div className="m-3">
-      <NotFound />
-    </div>
+    <React.Fragment>
+      <h4>Page Not Found</h4>
+      <p>Sorry, but the page you were trying to view does not exist.</p>
+    </React.Fragment>
   )
 }
