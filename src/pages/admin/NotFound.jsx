@@ -2,7 +2,7 @@ import React from 'react'
 
 import Main from '../../components/layout/Main'
 
-export default function NotFoundPage() {
+export default function NotFound() {
   return (
     <Main>
       <section className="card">

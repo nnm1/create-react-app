@@ -5,7 +5,7 @@ import { fetchProfile } from '../../actions/profileActions'
 import Main from '../../components/layout/Main'
 import Progress from '../../lib/components/Progress'
 
-export default class ProfilePage extends React.PureComponent {
+export default class Profile extends React.PureComponent {
   constructor(props) {
     super(props)
 

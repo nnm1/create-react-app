@@ -2,7 +2,7 @@ import React from 'react'
 
 import Main from '../../components/layout/Main'
 
-export default function IndexPage() {
+export default function Index() {
   return (
     <Main header="Main Page">
       <section className="card">

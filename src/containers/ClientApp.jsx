@@ -3,8 +3,8 @@ import BrowserRouter from 'react-router-dom/BrowserRouter'
 import Route from 'react-router-dom/Route'
 import Switch from 'react-router-dom/Switch'
 
-import IndexPage from '../pages/IndexPage'
-import NotFoundPage from '../pages/NotFoundPage'
+import IndexPage from '../pages/Index'
+import NotFoundPage from '../pages/NotFound'
 
 import ProtectedRoute from '../lib/components/ProtectedRoute'
 import ProtectedApp from './ProtectedApp'

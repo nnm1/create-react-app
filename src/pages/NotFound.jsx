@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function NotFoundPage() {
+export default function NotFound() {
   return (
     <React.Fragment>
       <h4>Page Not Found</h4>

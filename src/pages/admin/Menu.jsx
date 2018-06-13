@@ -1,12 +1,12 @@
 import React from 'react'
 
 import Main from '../../components/layout/Main'
-import Menu from '../../components/Menu'
+import MyMenu from '../../components/Menu'
 
-export default function MenuPage() {
+export default function Menu() {
   return (
     <Main>
-      <Menu />
+      <MyMenu />
     </Main>
   )
 }

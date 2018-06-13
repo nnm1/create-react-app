@@ -4,7 +4,7 @@ import _isEmpty from 'lodash/isEmpty'
 import { fetchProfile } from '../actions/profileActions'
 import Progress from '../lib/components/Progress'
 
-export default class IndexPage extends React.PureComponent {
+export default class Index extends React.PureComponent {
   constructor(props) {
     super(props)
 

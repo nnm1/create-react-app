@@ -4,11 +4,11 @@ import Switch from 'react-router-dom/Switch'
 
 import Page from '../components/layout/Page'
 
-import IndexPage from '../pages/admin/IndexPage'
-import ProfilePage from '../pages/admin/ProfilePage'
-import MenuPage from '../pages/admin/MenuPage'
+import IndexPage from '../pages/admin/Index'
+import ProfilePage from '../pages/admin/Profile'
+import MenuPage from '../pages/admin/Menu'
 
-import NotFoundPage from '../pages/admin/NotFoundPage'
+import NotFoundPage from '../pages/admin/NotFound'
 
 export default function ProtectedApp() {
   return (
