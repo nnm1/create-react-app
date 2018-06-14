@@ -3,7 +3,7 @@ import NavLink from 'react-router-dom/NavLink'
 
 function FooterLink({ to, exact, children }) {
   return (
-    <NavLink className="nav-item nav-link position-relative" to={to} exact={exact}>
+    <NavLink className="nav-item nav-link position-relative px-2" to={to} exact={exact}>
       {children}
     </NavLink>
   )
@@ -13,7 +13,7 @@ function FooterBadge({ children }) {
   return (
     <span
       className="badge badge-pill badge-danger position-absolute"
-      style={{ top: '0.25rem' }}
+      style={{ top: '0.25rem', right: '0.25rem' }}
     >
       {children}
     </span>
