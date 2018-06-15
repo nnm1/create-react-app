@@ -9,10 +9,10 @@ function isUserLoggedIn() {
   return true
 }
 
-export default function ProtectedRoute({ component: Component, ...props }) {
+export default function ProtectedRoute({ component: Component, ...rest }) {
   return (
     <Route
-      {...props}
+      {...rest}
       render={props =>
         isUserLoggedIn() ? (
           <Component {...props} />
