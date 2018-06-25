@@ -1,18 +1,14 @@
 import React from 'react'
 
-import Main from '../../components/layout/Main'
+import Page from '../../components/layout/Page'
 
 export default function NotFound() {
   return (
-    <Main>
-      <section className="card">
-        <div className="card-body">
-          <h4 className="card-title">Page Not Found</h4>
-          <p className="card-text">
-            Sorry, but the page you were trying to view does not exist.
-          </p>
-        </div>
-      </section>
-    </Main>
+    <Page back={true}>
+      <div className="bg-red rounded text-white p-4" role="alert">
+        <h2 className="mb-2">Admin Page Not Found</h2>
+        <p>Sorry, but the page you were trying to view does not exist.</p>
+      </div>
+    </Page>
   )
 }

@@ -1,46 +1,40 @@
 import React from 'react'
-import _isEmpty from 'lodash/isEmpty'
+import Link from 'react-router-dom/Link'
 
 import { fetchProfile } from '../../actions/profile'
-import Main from '../../components/layout/Main'
-import Progress from '../../lib/components/Progress'
+import Page from '../../components/layout/Page'
 
-export default class Profile extends React.PureComponent {
-  constructor(props) {
-    super(props)
-
-    this.state = { profile: {} }
+export default class Profle extends React.PureComponent {
+  state = {
+    profile: {
+      name: '',
+    },
   }
 
-  componentDidMount() {
-    fetchProfile()
-      .then(profile => this.setState({ profile }))
-      .catch(err => console.error(err))
+  async componentDidMount() {
+    try {
+      const profile = await fetchProfile()
+      this.setState({ profile })
+    } catch (err) {
+      console.error(err)
+    }
   }
 
   render() {
-    const actions = (
-      <button type="button" className="btn btn-warning">
-        Save
-      </button>
-    )
-
     const profile = this.state.profile
-    const cardContent = _isEmpty(profile) ? (
-      <Progress />
-    ) : (
-      <p className="card-text">Profile settings for {profile.name} go here</p>
+    const actions = (
+      <Link className="text-grey-dark hover:text-black" to="/logout">
+        Logout
+      </Link>
     )
 
     return (
-      <Main header="My Profile" actions={actions} back>
-        <section className="card">
-          <div className="card-body">
-            <h4 className="card-title">My Profile</h4>
-            {cardContent}
-          </div>
+      <Page header="My Profile" actions={actions} back={true}>
+        <section className="p-4 border border-grey-light rounded">
+          <h3 className="mb-3">My Profile</h3>
+          Welcome, {profile.name}
         </section>
-      </Main>
+      </Page>
     )
   }
 }

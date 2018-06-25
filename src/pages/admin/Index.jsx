@@ -1,16 +1,29 @@
 import React from 'react'
+import Link from 'react-router-dom/Link'
 
-import Main from '../../components/layout/Main'
+import '../Index.css'
+import logo from '../logo.svg'
+
+import Page from '../../components/layout/Page'
 
 export default function Index() {
+  const actions = (
+    <Link className="text-grey-dark hover:text-black" to="/admin/profile">
+      My Profile
+    </Link>
+  )
+
   return (
-    <Main header="Main Page">
-      <section className="card">
-        <div className="card-body">
-          <h4 className="card-title">Main Page</h4>
-          <p className="card-text">Statistics, reports, charts, etc. go here</p>
+    <Page header="Index Page" actions={actions}>
+      <div className="text-center">
+        <div className="bg-blue-dark mb-6 p-6 rounded">
+          <img src={logo} className="app-logo" alt="logo" />
+          <h1 className="text-white">Welcome to protected React area</h1>
         </div>
-      </section>
-    </Main>
+        <p>
+          To get started, edit <code>pages/admin/Index.jsx</code> and save to reload.
+        </p>
+      </div>
+    </Page>
   )
 }

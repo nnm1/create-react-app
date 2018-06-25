@@ -9,7 +9,7 @@ import NotFoundPage from '../pages/NotFound'
 import ProtectedRoute from '../lib/components/ProtectedRoute'
 import ProtectedApp from './ProtectedApp'
 
-export default function ClientApp() {
+export default function App() {
   return (
     <BrowserRouter>
       <Switch>
