@@ -1,27 +1,23 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import Footerbar from './Footerbar'
-import Menu from '../Menu'
+import Header from './Header'
+import Main from './Main'
 
-export default function Page({ children }) {
+export default function Page({ back, header, actions, children }) {
   return (
-    <div className="page">
-      {/* Topbar and main sections */}
-      {children}
-
-      {/* Sidebar */}
-      <div className="container d-none d-lg-block">
-        <aside className="sidebar">
-          <Menu />
-        </aside>
-      </div>
-
-      <Footerbar />
-    </div>
+    <React.Fragment>
+      <Header header={header} back={back}>
+        {actions}
+      </Header>
+      <Main>{children}</Main>
+    </React.Fragment>
   )
 }
 
 Page.propTypes = {
-  children: PropTypes.element.isRequired
+  back: PropTypes.bool,
+  header: PropTypes.string,
+  actions: PropTypes.element,
+  children: PropTypes.element,
 }

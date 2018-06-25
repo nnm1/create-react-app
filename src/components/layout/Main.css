@@ -1,0 +1,3 @@
+.sidenav {
+  max-height: calc(100vh - 4.5rem); /* 100vh - App's padding top */
+}

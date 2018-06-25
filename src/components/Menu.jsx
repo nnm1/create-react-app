@@ -1,54 +1,61 @@
 import React from 'react'
 import NavLink from 'react-router-dom/NavLink'
 
-function Nav({ children }) {
-  return <nav className="nav nav-pills flex-column mb-3">{children}</nav>
+export default function Menu() {
+  return (
+    <nav className="menunav">
+      <div className="mb-6">
+        <MenuHeader>MENU 1</MenuHeader>
+        <ul>
+          <MenuLink exact={true} to="/admin">
+            Main
+            <MenuBadge>2</MenuBadge>
+          </MenuLink>
+          <MenuLink to="/admin/item1">Menu Item 1</MenuLink>
+        </ul>
+      </div>
+
+      <div className="mb-6">
+        <MenuHeader>MENU 2</MenuHeader>
+        <ul>
+          <MenuLink to="/admin/item2">Menu Item 2</MenuLink>
+          <MenuLink to="/admin/item3">Menu Item 3</MenuLink>
+          <MenuLink to="/admin/item4">Menu Item 4</MenuLink>
+        </ul>
+      </div>
+    </nav>
+  )
 }
 
-function MenuLink({ to, exact, children }) {
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+function MenuHeader({ children }) {
+  return <p className="mb-3 text-grey font-bold text-sm">{children}</p>
+}
+
+function MenuLink({ exact, to, children }) {
   return (
-    <NavLink className="nav-link" to={to} exact={exact}>
-      {children}
-    </NavLink>
+    <li className="mb-1">
+      <NavLink
+        className="block relative py-1 text-grey-dark hover:text-black"
+        exact={exact}
+        to={to}
+      >
+        {children}
+      </NavLink>
+    </li>
   )
 }
 
 function MenuBadge({ children }) {
   return (
     <span
-      className="badge badge-pill badge-danger float-right"
-      style={{ marginTop: '3px' }}
+      className="absolute pin-r px-2 rounded-full bg-red text-sm text-white"
+      style={{ top: '0.25rem', bottom: '0.25rem' }}
     >
       {children}
     </span>
-  )
-}
-
-export default function Menu() {
-  return (
-    <React.Fragment>
-      {/* Group 1 */}
-      <Nav>
-        <span className="nav-link disabled">Group 1</span>
-
-        <MenuLink to="/admin" exact>
-          Main
-        </MenuLink>
-        <MenuLink to="/admin/profile">Profile</MenuLink>
-        <MenuLink to="/admin/nav1">
-          Nav 1
-          <MenuBadge>1</MenuBadge>
-        </MenuLink>
-      </Nav>
-
-      {/* Group 2 */}
-      <Nav>
-        <span className="nav-link disabled">Group 2</span>
-
-        <MenuLink to="/admin/nav2">Nav 2</MenuLink>
-        <MenuLink to="/admin/nav3">Nav 3</MenuLink>
-        <MenuLink to="/admin/nav4">Nav 4</MenuLink>
-      </Nav>
-    </React.Fragment>
   )
 }

@@ -1,12 +1,14 @@
 import React from 'react'
 
-import Main from '../../components/layout/Main'
-import MyMenu from '../../components/Menu'
+import Page from '../../components/layout/Page'
+import MenuNav from '../../components/Menu'
 
 export default function Menu() {
   return (
-    <Main>
-      <MyMenu />
-    </Main>
+    <Page>
+      <div className="mobilenav">
+        <MenuNav />
+      </div>
+    </Page>
   )
 }

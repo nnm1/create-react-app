@@ -1,23 +1,20 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import Content from './Content'
-import Topbar from './Topbar'
+import Menu from '../Menu'
+import './Main.css'
 
-export default function Main({ back, header, actions, children }) {
+export default function Main({ children }) {
   return (
-    <React.Fragment>
-      <Topbar header={header} back={back}>
-        {actions}
-      </Topbar>
-      <Content>{children}</Content>
-    </React.Fragment>
+    <div className="flex container mx-auto px-4">
+      <aside className="hidden lg:block w-full lg:w-1/6 overflow-y-auto px-4 sidenav">
+        <Menu />
+      </aside>
+      <main className="w-full lg:w-5/6 lg:px-4">{children}</main>
+    </div>
   )
 }
 
 Main.propTypes = {
-  back: PropTypes.bool,
-  header: PropTypes.string,
-  actions: PropTypes.element,
-  children: PropTypes.element.isRequired
+  children: PropTypes.element,
 }
