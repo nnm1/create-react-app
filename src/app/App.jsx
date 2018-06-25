@@ -15,10 +15,26 @@ export default function ClientApp() {
       <Switch>
         <Route exact path="/" component={IndexPage} />
 
-        <ProtectedRoute path="/admin" component={ProtectedApp} />
+        <ProtectedRoute
+          path="/admin"
+          component={ProtectedApp}
+          redirector={userRedirector}
+        />
 
         <Route path="*" component={NotFoundPage} />
       </Switch>
     </BrowserRouter>
   )
+}
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+function userRedirector() {
+  // if (currentUser.isLoggedIn()) {
+  //   return ''
+  // }
+  // return '/login'
+  return ''
 }

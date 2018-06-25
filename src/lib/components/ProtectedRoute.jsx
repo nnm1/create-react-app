@@ -3,30 +3,27 @@ import React from 'react'
 import Redirect from 'react-router-dom/Redirect'
 import Route from 'react-router-dom/Route'
 
-const redirectUnauthorizedTo = '/login'
-
-function isUserLoggedIn() {
-  return true
+export default function ProtectedRoute({ component, redirector, ...props }) {
+  return <Route {...props} render={renderOrRedirect(component, redirector)} />
 }
 
-export default function ProtectedRoute({ component: Component, ...rest }) {
-  return (
-    <Route
-      {...rest}
-      render={props =>
-        isUserLoggedIn() ? (
-          <Component {...props} />
-        ) : (
-          <Redirect
-            to={{
-              pathname: redirectUnauthorizedTo,
-              state: { from: props.location }
-            }}
-          />
-        )
-      }
-    />
-  )
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+function renderOrRedirect(Component, redirector) {
+  const redirectTo = redirector()
+  return props =>
+    redirectTo ? (
+      <Redirect
+        to={{
+          pathname: redirectTo,
+          state: { from: props.location }
+        }}
+      />
+    ) : (
+      <Component {...props} />
+    )
 }
 
 ProtectedRoute.propTypes = {
