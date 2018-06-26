@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import NavLink from 'react-router-dom/NavLink'
 
@@ -7,7 +8,7 @@ export default function Menu() {
       <div className="mb-6">
         <MenuHeader>MENU 1</MenuHeader>
         <ul>
-          <MenuLink exact={true} to="/admin">
+          <MenuLink exact to="/admin">
             Main
             <MenuBadge>2</MenuBadge>
           </MenuLink>
@@ -35,6 +36,9 @@ function MenuHeader({ children }) {
   return <p className="mb-3 text-grey font-bold text-sm">{children}</p>
 }
 
+MenuHeader.propTypes = { children: PropTypes.node }
+MenuHeader.defaultProps = { children: null }
+
 function MenuLink({ exact, to, children }) {
   return (
     <li className="mb-1">
@@ -49,6 +53,17 @@ function MenuLink({ exact, to, children }) {
   )
 }
 
+MenuLink.propTypes = {
+  exact: PropTypes.bool,
+  to: PropTypes.string,
+  children: PropTypes.node,
+}
+MenuLink.defaultProps = {
+  exact: false,
+  to: '',
+  children: null,
+}
+
 function MenuBadge({ children }) {
   return (
     <span
@@ -59,3 +74,6 @@ function MenuBadge({ children }) {
     </span>
   )
 }
+
+MenuBadge.propTypes = { children: PropTypes.node }
+MenuBadge.defaultProps = { children: null }

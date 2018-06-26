@@ -1,4 +1,5 @@
 # create-react-app
+
 create-react-app is a React application template.
 
 ## Key Technologies
@@ -7,6 +8,6 @@ create-react-app is a React application template.
 
 * [React Router](https://reacttraining.com/react-router)
 
-* [Bootstrap](https://getbootstrap.com)
+* [TailwindCSS](https://tailwindcss.com)
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
