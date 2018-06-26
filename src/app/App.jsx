@@ -9,6 +9,18 @@ import NotFoundPage from '../pages/NotFound'
 import ProtectedRoute from '../lib/components/ProtectedRoute'
 import ProtectedApp from './ProtectedApp'
 
+function userRedirector() {
+  // if (currentUser.isLoggedIn()) {
+  //   return ''
+  // }
+  // return '/login'
+  return ''
+}
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -25,16 +37,4 @@ export default function App() {
       </Switch>
     </BrowserRouter>
   )
-}
-
-// ----------------------------------------------------------------------------
-// ----------------------------------------------------------------------------
-// ----------------------------------------------------------------------------
-
-function userRedirector() {
-  // if (currentUser.isLoggedIn()) {
-  //   return ''
-  // }
-  // return '/login'
-  return ''
 }

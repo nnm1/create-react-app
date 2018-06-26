@@ -6,12 +6,12 @@ import Footer from './Footer'
 export default function App({ children }) {
   return (
     <div className="app">
-      {children} {/* Topbar and Main sections */}
+      {/* Topbar and Main sections */}
+      {children}
+
       <Footer />
     </div>
   )
 }
 
-App.propTypes = {
-  children: PropTypes.element.isRequired,
-}
+App.propTypes = { children: PropTypes.node.isRequired }

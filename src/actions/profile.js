@@ -1,9 +1,10 @@
 // Simulate a HTTP request.
-export function fetchProfile() {
-  return new Promise(resolve =>
+export default function fetchProfile() {
+  const promise = resolve =>
     setTimeout(() => {
-      const profile = { name: 'User Name' }
-      resolve(profile)
-    }, 100)
-  )
+      const profile = { name: 'User Name' };
+      resolve(profile);
+    }, 100);
+
+  return new Promise(promise);
 }

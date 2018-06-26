@@ -17,7 +17,13 @@ export default function Page({ back, header, actions, children }) {
 
 Page.propTypes = {
   back: PropTypes.bool,
-  header: PropTypes.string,
-  actions: PropTypes.element,
-  children: PropTypes.element,
+  header: PropTypes.node,
+  actions: PropTypes.node,
+  children: PropTypes.node,
+}
+Page.defaultProps = {
+  back: false,
+  header: null,
+  actions: null,
+  children: null,
 }

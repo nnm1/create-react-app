@@ -15,6 +15,5 @@ export default function Main({ children }) {
   )
 }
 
-Main.propTypes = {
-  children: PropTypes.element,
-}
+Main.propTypes = { children: PropTypes.node }
+Main.defaultProps = { children: null }

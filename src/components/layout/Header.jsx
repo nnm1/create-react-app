@@ -12,8 +12,10 @@ export default function Header({ back, header, children }) {
         <div className="w-1/4">
           <BackOrLogoWithRouter back={back} />
         </div>
+
         {/* Header */}
         <h3 className="w-1/2 px-4 text-center">{header}</h3>
+
         {/* Actions */}
         <div className="w-1/4 text-right">{children}</div>
       </div>
@@ -23,8 +25,13 @@ export default function Header({ back, header, children }) {
 
 Header.propTypes = {
   back: PropTypes.bool,
-  header: PropTypes.string,
-  children: PropTypes.element,
+  header: PropTypes.node,
+  children: PropTypes.node,
+}
+Header.defaultProps = {
+  back: false,
+  header: null,
+  children: null,
 }
 
 // ----------------------------------------------------------------------------
@@ -42,5 +49,11 @@ function BackOrLogo({ back, history }) {
     <img src={logo} className="h-8" alt="logo" />
   )
 }
+
+BackOrLogo.propTypes = {
+  back: PropTypes.bool,
+  history: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+}
+BackOrLogo.defaultProps = { back: false }
 
 const BackOrLogoWithRouter = withRouter(BackOrLogo)
