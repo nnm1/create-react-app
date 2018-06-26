@@ -6,9 +6,9 @@ import Route from 'react-router-dom/Route'
 function renderOrRedirect(Component, redirector) {
   const redirectTo = redirector()
 
-  const result = props => {
+  return props => {
     if (redirectTo) {
-      const { location } = props
+      const { location } = props // eslint-disable-line react/prop-types
       return (
         <Redirect
           to={{
@@ -20,9 +20,6 @@ function renderOrRedirect(Component, redirector) {
     }
     return <Component {...props} />
   }
-  result.propTypes = { location: PropTypes.string }
-  result.defaultProps = { location: '' }
-  return result
 }
 
 // ----------------------------------------------------------------------------
